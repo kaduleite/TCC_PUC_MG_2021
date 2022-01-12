@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0135)file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head><meta charset="utf-8" />
 
 <title>5_NLP_modeloClassificador</title>
 
-<script src="./5_NLP_modeloClassificador_files/require.min.js.baixados"></script>
-<script src="./5_NLP_modeloClassificador_files/jquery.min.js.baixados"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
 
@@ -13085,13 +13085,13 @@ div#notebook {
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/custom.css">
+<link rel="stylesheet" href="custom.css">
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="./5_NLP_modeloClassificador_files/latest.js.baixados"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config;executed=true">
+    <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -13108,124 +13108,29 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration --><script type="text/javascript" async="" src="./5_NLP_modeloClassificador_files/MathJax.js.baixados"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
-.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
-.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
-.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
-</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_About.MathJax_MousePost {outline: none}
-.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-.MathJax_MenuItem {padding: 2px 2em; background: transparent}
-.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
-.MathJax_MenuActive .MathJax_MenuArrow {color: white}
-.MathJax_MenuArrow.RTL {left: .5em; right: auto}
-.MathJax_MenuCheck {position: absolute; left: .7em}
-.MathJax_MenuCheck.RTL {right: .7em; left: auto}
-.MathJax_MenuRadioCheck {position: absolute; left: 1em}
-.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
-.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
-.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
-.MathJax_MenuDisabled {color: GrayText}
-.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
-.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
-.MathJax_ContextMenu:focus {outline: none}
-.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
-#MathJax_AboutClose {top: .2em; right: .2em}
-.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
-.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
-.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
-.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_MenuClose:hover span {background-color: #CCC!important}
-.MathJax_MenuClose:hover:focus {outline: none}
-</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
-</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
-.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
-</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
-#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-</style><style type="text/css">.MathJax_Preview {color: #888}
-#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
-#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
-.MathJax_Error {color: #CC0000; font-style: italic}
-</style><style type="text/css">.MJXp-script {font-size: .8em}
-.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
-.MJXp-bold {font-weight: bold}
-.MJXp-italic {font-style: italic}
-.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-largeop {font-size: 150%}
-.MJXp-largeop.MJXp-int {vertical-align: -.2em}
-.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
-.MJXp-display {display: block; text-align: center; margin: 1em 0}
-.MJXp-math span {display: inline-block}
-.MJXp-box {display: block!important; text-align: center}
-.MJXp-box:after {content: " "}
-.MJXp-rule {display: block!important; margin-top: .1em}
-.MJXp-char {display: block!important}
-.MJXp-mo {margin: 0 .15em}
-.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
-.MJXp-denom {display: inline-table!important; width: 100%}
-.MJXp-denom > * {display: table-row!important}
-.MJXp-surd {vertical-align: top}
-.MJXp-surd > * {display: block!important}
-.MJXp-script-box > *  {display: table!important; height: 50%}
-.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
-.MJXp-script-box > *:last-child > * {vertical-align: bottom}
-.MJXp-script-box > * > * > * {display: block!important}
-.MJXp-mphantom {visibility: hidden}
-.MJXp-munderover, .MJXp-munder {display: inline-table!important}
-.MJXp-over {display: inline-block!important; text-align: center}
-.MJXp-over > * {display: block!important}
-.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
-.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
-.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
-.MJXp-mtr {display: table-row!important}
-.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
-.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-mlabeledtr {display: table-row!important}
-.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
-.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
-.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
-.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
-.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
-.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
-.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
-.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
-.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
-.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
-.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
-.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
-</style></head>
-<body style=""><div id="MathJax_Message" style="display: none;"></div>
+    <!-- End of mathjax configuration --></head>
+<body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notebook-Jupyter-5_NLP_modeloClassificador"><em>Notebook Jupyter</em> 5_NLP_modeloClassificador<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Notebook-Jupyter-5_NLP_modeloClassificador">¶</a></h1>
+<h1 id="Notebook-Jupyter-5_NLP_modeloClassificador"><em>Notebook Jupyter</em> 5_NLP_modeloClassificador<a class="anchor-link" href="#Notebook-Jupyter-5_NLP_modeloClassificador">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Classificação-da-Aplicação-por-aprendizado-de-máquina">Classificação da Aplicação por aprendizado de máquina<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Classifica%C3%A7%C3%A3o-da-Aplica%C3%A7%C3%A3o-por-aprendizado-de-m%C3%A1quina">¶</a></h1>
+<h1 id="Classifica&#231;&#227;o-da-Aplica&#231;&#227;o-por-aprendizado-de-m&#225;quina">Classifica&#231;&#227;o da Aplica&#231;&#227;o por aprendizado de m&#225;quina<a class="anchor-link" href="#Classifica&#231;&#227;o-da-Aplica&#231;&#227;o-por-aprendizado-de-m&#225;quina">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Importando-bibliotecas">Importando bibliotecas<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Importando-bibliotecas">¶</a></h2>
+<h2 id="Importando-bibliotecas">Importando bibliotecas<a class="anchor-link" href="#Importando-bibliotecas">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13253,7 +13158,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data e hora da execução do script</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Código executado em {time.strftime("</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M", time.localtime(time.time()))}'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Código executado em {time.strftime(&quot;</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M&quot;, time.localtime(time.time()))}&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13270,7 +13175,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 10/01/2022 às 20:03
+<pre>Código executado em 12/01/2022 às 19:32
 </pre>
 </div>
 </div>
@@ -13282,7 +13187,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Importando-a-lista-de-Aplicações">Importando a lista de Aplicações<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Importando-a-lista-de-Aplica%C3%A7%C3%B5es">¶</a></h3>
+<h3 id="Importando-a-lista-de-Aplica&#231;&#245;es">Importando a lista de Aplica&#231;&#245;es<a class="anchor-link" href="#Importando-a-lista-de-Aplica&#231;&#245;es">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13291,7 +13196,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_aplicacoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'Aplicacoes.csv'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_aplicacoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/Aplicacoes.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13323,7 +13228,7 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -13387,7 +13292,7 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -13463,14 +13368,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="CountVectorizer">CountVectorizer<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#CountVectorizer">¶</a></h2>
+<h2 id="CountVectorizer">CountVectorizer<a class="anchor-link" href="#CountVectorizer">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="CountVectorizer-do-DataSet-das-Aplicaçãoes">CountVectorizer do DataSet das Aplicaçãoes<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#CountVectorizer-do-DataSet-das-Aplica%C3%A7%C3%A3oes">¶</a></h3>
+<h3 id="CountVectorizer-do-DataSet-das-Aplica&#231;&#227;oes">CountVectorizer do DataSet das Aplica&#231;&#227;oes<a class="anchor-link" href="#CountVectorizer-do-DataSet-das-Aplica&#231;&#227;oes">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13480,7 +13385,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criação da função CountVectorizer</span>
-<span class="n">cvta</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">strip_accents</span><span class="o">=</span><span class="s1">'ascii'</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cvta</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">strip_accents</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13493,7 +13398,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">'APLICACOES'</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13531,14 +13436,14 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Treinando-os-Modelos-com-o-DataSet-Aplicações">Treinando os Modelos com o DataSet Aplicações<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Treinando-os-Modelos-com-o-DataSet-Aplica%C3%A7%C3%B5es">¶</a></h2>
+<h2 id="Treinando-os-Modelos-com-o-DataSet-Aplica&#231;&#245;es">Treinando os Modelos com o DataSet Aplica&#231;&#245;es<a class="anchor-link" href="#Treinando-os-Modelos-com-o-DataSet-Aplica&#231;&#245;es">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Definindo-os-parâmetros">Definindo os parâmetros<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Definindo-os-par%C3%A2metros">¶</a></h3>
+<h3 id="Definindo-os-par&#226;metros">Definindo os par&#226;metros<a class="anchor-link" href="#Definindo-os-par&#226;metros">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13556,8 +13461,8 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="o">=</span><span class="n">X_tfia</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-<span class="n">y_train</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">'APLICACOES'</span><span class="p">])</span>
-<span class="n">y_train1</span><span class="o">=</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">'APLICACOES'</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">y_train</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">])</span>
+<span class="n">y_train1</span><span class="o">=</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13568,7 +13473,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Modelo-LinearSVC">Modelo LinearSVC<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Modelo-LinearSVC">¶</a></h3>
+<h3 id="Modelo-LinearSVC">Modelo LinearSVC<a class="anchor-link" href="#Modelo-LinearSVC">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13600,8 +13505,8 @@ div#notebook {
 
 <div class="output_text output_subarea output_execute_result">
 <pre>LinearSVC(C=1.0, class_weight=None, dual=True, fit_intercept=True,
-     intercept_scaling=1, loss='squared_hinge', max_iter=1000,
-     multi_class='ovr', penalty='l2', random_state=None, tol=0.0001,
+     intercept_scaling=1, loss=&#39;squared_hinge&#39;, max_iter=1000,
+     multi_class=&#39;ovr&#39;, penalty=&#39;l2&#39;, random_state=None, tol=0.0001,
      verbose=0)</pre>
 </div>
 
@@ -13614,7 +13519,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Função-de-classificação-LinearSVC">Função de classificação LinearSVC<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Fun%C3%A7%C3%A3o-de-classifica%C3%A7%C3%A3o-LinearSVC">¶</a></h4>
+<h4 id="Fun&#231;&#227;o-de-classifica&#231;&#227;o-LinearSVC">Fun&#231;&#227;o de classifica&#231;&#227;o LinearSVC<a class="anchor-link" href="#Fun&#231;&#227;o-de-classifica&#231;&#227;o-LinearSVC">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13657,16 +13562,16 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lista de exemplos de novos produtos</span>
-<span class="n">modelos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'150 CG HONDA TITAN'</span><span class="p">,</span>
-           <span class="s1">'125 CARGO CG HONDA TITAN'</span><span class="p">,</span>
-           <span class="s1">'BIZ C100 HONDA'</span><span class="p">,</span>
-           <span class="s1">'100 HONDA BIZ'</span><span class="p">,</span>
-           <span class="s1">'100 BIZ BRAVO HONDA'</span><span class="p">,</span>
-           <span class="s1">'125 YBR GT YAMAHA'</span><span class="p">,</span>
-           <span class="s1">'250F TWISTER HONDA'</span><span class="p">]</span>
+<span class="n">modelos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;150 CG HONDA TITAN&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;125 CARGO CG HONDA TITAN&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;BIZ C100 HONDA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;100 HONDA BIZ&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;100 BIZ BRAVO HONDA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;125 YBR GT YAMAHA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;250F TWISTER HONDA&#39;</span><span class="p">]</span>
 <span class="c1"># Loop for para fazer a predição do departamento de novos produtos</span>
 <span class="k">for</span> <span class="n">modelo</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">'Modelo:'</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">' Aplicação:'</span><span class="p">,</span> <span class="n">classificaAplicacaoSVC</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39; Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoSVC</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13701,7 +13606,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Modelo-Multinomial-Naive-Bayes">Modelo Multinomial Naive Bayes<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Modelo-Multinomial-Naive-Bayes">¶</a></h3>
+<h3 id="Modelo-Multinomial-Naive-Bayes">Modelo Multinomial Naive Bayes<a class="anchor-link" href="#Modelo-Multinomial-Naive-Bayes">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13744,7 +13649,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Função-de-classificação">Função de classificação<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Fun%C3%A7%C3%A3o-de-classifica%C3%A7%C3%A3o">¶</a></h4>
+<h4 id="Fun&#231;&#227;o-de-classifica&#231;&#227;o">Fun&#231;&#227;o de classifica&#231;&#227;o<a class="anchor-link" href="#Fun&#231;&#227;o-de-classifica&#231;&#227;o">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13764,7 +13669,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">classificaAplicacaoMNB</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
     <span class="n">novo_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
     <span class="n">novo_tfia</span> <span class="o">=</span> <span class="n">tfia</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">novo_cvta</span><span class="p">)</span>
-    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">'APLICACOES'</span><span class="p">][</span><span class="n">clfmnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_tfia</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">][</span><span class="n">clfmnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_tfia</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
     <span class="k">return</span> <span class="n">aplicacao</span>
 </pre></div>
 
@@ -13787,16 +13692,16 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lista de exemplos de novos produtos</span>
-<span class="n">modelos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'150 CG FAN HONDA TITAN'</span><span class="p">,</span>
-           <span class="s1">'125 CARGO CG HONDA TITAN'</span><span class="p">,</span>
-           <span class="s1">'BIZ C100 HONDA'</span><span class="p">,</span>
-           <span class="s1">'100 HONDA BIZ'</span><span class="p">,</span>
-           <span class="s1">'100 BIZ BRAVO HONDA'</span><span class="p">,</span>
-           <span class="s1">'125 YBR GT YAMAHA'</span><span class="p">,</span>
-           <span class="s1">'250F TWISTER HONDA'</span><span class="p">]</span>
+<span class="n">modelos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;150 CG FAN HONDA TITAN&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;125 CARGO CG HONDA TITAN&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;BIZ C100 HONDA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;100 HONDA BIZ&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;100 BIZ BRAVO HONDA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;125 YBR GT YAMAHA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;250F TWISTER HONDA&#39;</span><span class="p">]</span>
 <span class="c1"># Loop for para fazer a predição do departamento de novos produtos</span>
 <span class="k">for</span> <span class="n">modelo</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">'Modelo:'</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">'Aplicação:'</span><span class="p">,</span> <span class="n">classificaAplicacaoMNB</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39;Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoMNB</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13831,7 +13736,7 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Modelo-de-Regressão-Logística">Modelo de Regressão Logística<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Modelo-de-Regress%C3%A3o-Log%C3%ADstica">¶</a></h3>
+<h3 id="Modelo-de-Regress&#227;o-Log&#237;stica">Modelo de Regress&#227;o Log&#237;stica<a class="anchor-link" href="#Modelo-de-Regress&#227;o-Log&#237;stica">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13841,7 +13746,7 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criando modelo</span>
-<span class="n">clflgr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">'lbfgs'</span><span class="p">,</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">'multinomial'</span><span class="p">)</span>
+<span class="n">clflgr</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span><span class="n">multi_class</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">)</span>
 <span class="c1"># Treinamento do modelo</span>
 <span class="n">clflgr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
@@ -13863,8 +13768,8 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 
 <div class="output_text output_subarea output_execute_result">
 <pre>LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-          intercept_scaling=1, max_iter=100, multi_class='multinomial',
-          n_jobs=None, penalty='l2', random_state=None, solver='lbfgs',
+          intercept_scaling=1, max_iter=100, multi_class=&#39;multinomial&#39;,
+          n_jobs=None, penalty=&#39;l2&#39;, random_state=None, solver=&#39;lbfgs&#39;,
           tol=0.0001, verbose=0, warm_start=False)</pre>
 </div>
 
@@ -13877,7 +13782,7 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Função-de-classificação">Função de classificação<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Fun%C3%A7%C3%A3o-de-classifica%C3%A7%C3%A3o">¶</a></h4>
+<h4 id="Fun&#231;&#227;o-de-classifica&#231;&#227;o">Fun&#231;&#227;o de classifica&#231;&#227;o<a class="anchor-link" href="#Fun&#231;&#227;o-de-classifica&#231;&#227;o">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -13920,16 +13825,16 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lista de exemplos de novos produtos</span>
-<span class="n">modelos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'150 CG FAN HONDA TITAN'</span><span class="p">,</span>
-           <span class="s1">'125 CARGO CG HONDA TITAN'</span><span class="p">,</span>
-           <span class="s1">'BIZ C100 HONDA'</span><span class="p">,</span>
-           <span class="s1">'100 HONDA BIZ'</span><span class="p">,</span>
-           <span class="s1">'100 BIZ BRAVO HONDA'</span><span class="p">,</span>
-           <span class="s1">'125 YBR GT YAMAHA'</span><span class="p">,</span>
-           <span class="s1">'250F TWISTER HONDA'</span><span class="p">]</span>
+<span class="n">modelos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;150 CG FAN HONDA TITAN&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;125 CARGO CG HONDA TITAN&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;BIZ C100 HONDA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;100 HONDA BIZ&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;100 BIZ BRAVO HONDA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;125 YBR GT YAMAHA&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;250F TWISTER HONDA&#39;</span><span class="p">]</span>
 <span class="c1"># Loop for para fazer a predição do departamento de novos produtos</span>
 <span class="k">for</span> <span class="n">modelo</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'Modelo:'</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">'Aplicação:'</span><span class="p">,</span> <span class="n">classificaAplicacaoLGR</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39;Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoLGR</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13964,14 +13869,14 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Utilização-do-modelo">Utilização do modelo<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Utiliza%C3%A7%C3%A3o-do-modelo">¶</a></h2>
+<h2 id="Utiliza&#231;&#227;o-do-modelo">Utiliza&#231;&#227;o do modelo<a class="anchor-link" href="#Utiliza&#231;&#227;o-do-modelo">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Carregando-dataset">Carregando dataset<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Carregando-dataset">¶</a></h3>
+<h3 id="Carregando-dataset">Carregando dataset<a class="anchor-link" href="#Carregando-dataset">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13981,7 +13886,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importa base de dados com os modelos já determinados para um dataframe</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'dataframe_modelos_class0.xlsx'</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_class0.xlsx&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -14001,7 +13906,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -14025,17 +13930,17 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
   <tbody>
     <tr>
       <th>0</th>
-      <td>HONDA CG 150 TIT AN TITAN FAN</td>
+      <td>TITAN HONDA FAN CG TIT 150 AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>CG HONDA TIT AN 125 CARGO TITAN</td>
+      <td>TITAN HONDA CG CARGO TIT 125 AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>HONDA 125 CG FAN</td>
+      <td>125 CG HONDA FAN</td>
       <td>HONDA CG FAN</td>
     </tr>
     <tr>
@@ -14084,7 +13989,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18237, 28)</pre>
+<pre>(18327, 6)</pre>
 </div>
 
 </div>
@@ -14096,7 +14001,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Classificando-os-modelos-do-DataSet">Classificando os modelos do DataSet<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Classificando-os-modelos-do-DataSet">¶</a></h3>
+<h3 id="Classificando-os-modelos-do-DataSet">Classificando os modelos do DataSet<a class="anchor-link" href="#Classificando-os-modelos-do-DataSet">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14107,15 +14012,15 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Modelo Linear SVC</span>
 <span class="n">ini</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H:%M:%S"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Hora de início:"</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de início:&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoSVC</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoSVC</span><span class="p">)</span>
 
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H:%M:%S"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 <span class="n">fim</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Hora de término:"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Tempo decorrido: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" segundos."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de término:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tempo decorrido: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14132,9 +14037,9 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hora de início:20:03:23
-Hora de término:20:03:32
-Tempo decorrido: 8.9 segundos.
+<pre>Hora de início:19:32:57
+Hora de término:19:33:06
+Tempo decorrido: 8.8 segundos.
 </pre>
 </div>
 </div>
@@ -14150,15 +14055,15 @@ Tempo decorrido: 8.9 segundos.
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Modelo Multinomial NB</span>
 <span class="n">ini</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H:%M"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Hora de início:"</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de início:&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoMNB</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoMNB</span><span class="p">)</span>
 
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H:%M"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 <span class="n">fim</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Hora de término:"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Tempo decorrido: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" segundos."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de término:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tempo decorrido: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14175,9 +14080,9 @@ Tempo decorrido: 8.9 segundos.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hora de início:20:03
-Hora de término:20:04
-Tempo decorrido: 58.5 segundos.
+<pre>Hora de início:19:33
+Hora de término:19:34
+Tempo decorrido: 60.4 segundos.
 </pre>
 </div>
 </div>
@@ -14193,15 +14098,15 @@ Tempo decorrido: 58.5 segundos.
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Modelo Regressão Logística</span>
 <span class="n">ini</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H:%M"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Hora de início:"</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de início:&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOLGR'</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoLGR</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoLGR</span><span class="p">)</span>
 
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%H:%M"</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 <span class="n">fim</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Hora de término:"</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Tempo decorrido: "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" segundos."</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de término:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tempo decorrido: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14218,9 +14123,9 @@ Tempo decorrido: 58.5 segundos.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hora de início:20:04
-Hora de término:20:05
-Tempo decorrido: 72.3 segundos.
+<pre>Hora de início:19:34
+Hora de término:19:35
+Tempo decorrido: 68.5 segundos.
 </pre>
 </div>
 </div>
@@ -14253,7 +14158,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18237, 31)</pre>
+<pre>(18327, 9)</pre>
 </div>
 
 </div>
@@ -14286,7 +14191,7 @@ Tempo decorrido: 72.3 segundos.
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -14313,49 +14218,49 @@ Tempo decorrido: 72.3 segundos.
   </thead>
   <tbody>
     <tr>
-      <th>4202</th>
-      <td>volcom bros 150</td>
-      <td>HONDA BROS 150</td>
-      <td>HONDA NXR 150 BROS BROZ</td>
-      <td>HONDA NXR 150 BROS BROZ</td>
-      <td>HONDA NXR 150 BROS BROZ</td>
+      <th>4322</th>
+      <td>prot cg titan 150</td>
+      <td>HONDA TITAN CG TIT 150 AN</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+    </tr>
+    <tr>
+      <th>15987</th>
+      <td>titan 150 sport</td>
+      <td>SPORT TITAN TIT 150 AN</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>LIFAN LF125</td>
     </tr>
     <tr>
-      <th>17908</th>
-      <td>twister duas</td>
-      <td>TWISTER</td>
+      <th>12871</th>
+      <td>cbx 250 twister</td>
+      <td>HONDA TWISTER 250 CBX</td>
       <td>HONDA TWISTER CBX 250</td>
       <td>HONDA TWISTER CBX 250</td>
       <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA TWISTER CBX 250</td>
+    </tr>
+    <tr>
+      <th>17097</th>
+      <td>factor125 velth</td>
+      <td>YAMAHA 125 FACTOR</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
       <td>LIFAN LF125</td>
     </tr>
     <tr>
-      <th>10966</th>
-      <td>pop 100</td>
-      <td>HONDA POP 100</td>
-      <td>HONDA POP 100</td>
-      <td>HONDA POP 100</td>
-      <td>HONDA POP 100</td>
-      <td>HONDA POP 100</td>
-    </tr>
-    <tr>
-      <th>13214</th>
-      <td>ktr5299 yes katana</td>
-      <td>SUZUKI YES KATANA</td>
-      <td>SUZUKI YES EN 125</td>
-      <td>SUZUKI KATANA</td>
-      <td>SUZUKI KATANA</td>
-      <td>SUZUKI KATANA</td>
-    </tr>
-    <tr>
-      <th>1266</th>
-      <td>cg 160 fan start titan cargo 150</td>
-      <td>HONDA 160 CG 150 TIT AN CARGO TITAN FAN</td>
+      <th>8319</th>
+      <td>titan 150</td>
+      <td>TITAN 150 TIT AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>LIFAN LF125</td>
     </tr>
   </tbody>
 </table>
@@ -14371,7 +14276,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Comparação-das-classificações">Comparação das classificações<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Compara%C3%A7%C3%A3o-das-classifica%C3%A7%C3%B5es">¶</a></h2>
+<h2 id="Compara&#231;&#227;o-das-classifica&#231;&#245;es">Compara&#231;&#227;o das classifica&#231;&#245;es<a class="anchor-link" href="#Compara&#231;&#227;o-das-classifica&#231;&#245;es">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14381,7 +14286,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Multinomial NB</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14400,7 +14305,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(1122, 31)</pre>
+<pre>(1143, 9)</pre>
 </div>
 
 </div>
@@ -14415,7 +14320,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Regressão Logistica</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOLGR'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14434,7 +14339,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(8136, 31)</pre>
+<pre>(8191, 9)</pre>
 </div>
 
 </div>
@@ -14449,7 +14354,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos Multinomial NB e Regressão Logistica</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOLGR'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14468,7 +14373,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(7999, 31)</pre>
+<pre>(8030, 9)</pre>
 </div>
 
 </div>
@@ -14483,7 +14388,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14502,7 +14407,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(2595, 31)</pre>
+<pre>(2156, 9)</pre>
 </div>
 
 </div>
@@ -14517,7 +14422,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo Multinomial NB</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14536,7 +14441,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(2508, 31)</pre>
+<pre>(2136, 9)</pre>
 </div>
 
 </div>
@@ -14551,7 +14456,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo de Regressão Logística</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOLGR'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14570,7 +14475,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(8741, 31)</pre>
+<pre>(8808, 9)</pre>
 </div>
 
 </div>
@@ -14592,7 +14497,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'APLICACAOLGR'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14605,7 +14510,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
 </pre></div>
 
     </div>
@@ -14624,7 +14529,7 @@ Tempo decorrido: 72.3 segundos.
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -14668,7 +14573,7 @@ Tempo decorrido: 72.3 segundos.
     <tr>
       <th>17</th>
       <td>yes intruder 125 allen</td>
-      <td>SUZUKI 125 YES INTRUDER</td>
+      <td>SUZUKI INTRUDER 125 YES</td>
       <td>SUZUKI YES EN 125</td>
       <td>SUZUKI INTRUDER</td>
       <td>SUZUKI YES EN 125</td>
@@ -14684,462 +14589,13 @@ Tempo decorrido: 72.3 segundos.
     <tr>
       <th>42</th>
       <td>xtz 250 allen</td>
-      <td>YAMAHA XTZ 250</td>
+      <td>YAMAHA 250 XTZ</td>
       <td>['YAMAHA LANDER XTZ 250', 'YAMAHA XTZ TENERE 2...</td>
       <td>YAMAHA XTZ 125</td>
       <td>YAMAHA XTZ TENERE 250</td>
     </tr>
-    <tr>
-      <th>43</th>
-      <td>xl 125s allen</td>
-      <td>HONDA XL</td>
-      <td>['HONDA VARADERO XL 1000V', 'HONDA XL 700V TRA...</td>
-      <td>HONDA XL 700V TRANSALP</td>
-      <td>HONDA VARADERO XL 1000V</td>
-    </tr>
-    <tr>
-      <th>104</th>
-      <td>50</td>
-      <td>50</td>
-      <td>['BETA MX-50 MX50 50', 'GARINNI GRI 50', 'HOND...</td>
-      <td>KTM SX 50</td>
-      <td>BETA MX-50 MX50 50</td>
-    </tr>
-    <tr>
-      <th>110</th>
-      <td>top cb 300r nr</td>
-      <td>HONDA CB 300R TOP</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KAHENA TOP</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>111</th>
-      <td>top ninja 250r 300 nr</td>
-      <td>KAWASAKI TOP 300 NINJA 50R</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAWASAKI NINJA 300</td>
-    </tr>
-    <tr>
-      <th>112</th>
-      <td>top yzf r3 mt nr</td>
-      <td>YAMAHA YZF TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA YZF R1</td>
-    </tr>
-    <tr>
-      <th>135</th>
-      <td>xl 125 nr</td>
-      <td>HONDA 125 XL</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>HONDA XL 700V TRANSALP</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-    </tr>
-    <tr>
-      <th>145</th>
-      <td>brandy honda cb 300r pc-corrente 110 reg pc-co...</td>
-      <td>HONDA PC 110 300R CB BRANDY</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>147</th>
-      <td>brandy yamaha ys 250 fazer pc-corrente reg pc-...</td>
-      <td>EXC PC 250 YAMAHA BRANDY FAZER</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>YAMAHA FAZER YS250 250</td>
-    </tr>
-    <tr>
-      <th>149</th>
-      <td>brandy yamaha xtz 125 pc-corrente reg pc-coroa...</td>
-      <td>PC 125 XTZ BRANDY YAMAHA</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>YAMAHA XTZ 125</td>
-    </tr>
-    <tr>
-      <th>256</th>
-      <td>xl 125</td>
-      <td>HONDA 125 XL</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>HONDA XL 700V TRANSALP</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-    </tr>
-    <tr>
-      <th>289</th>
-      <td>max 125 hunter p21b-</td>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-    </tr>
-    <tr>
-      <th>293</th>
-      <td>cb 300 p21b-</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>311</th>
-      <td>hunter max125 allen</td>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-    </tr>
-    <tr>
-      <th>317</th>
-      <td>yes intruder125 allen</td>
-      <td>SUZUKI 125 YES INTRUDER</td>
-      <td>SUZUKI YES EN 125</td>
-      <td>SUZUKI INTRUDER</td>
-      <td>SUZUKI YES EN 125</td>
-    </tr>
-    <tr>
-      <th>353</th>
-      <td>brandy yamaha ys 250 fazer pc-corrente reg pc-...</td>
-      <td>EXC PC 250 YAMAHA BRANDY FAZER</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>YAMAHA FAZER YS250 250</td>
-    </tr>
-    <tr>
-      <th>364</th>
-      <td>brandy yamaha xtz 125 pc-corrente reg pc-coroa...</td>
-      <td>PC 125 XTZ BRANDY YAMAHA</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>YAMAHA XTZ 125</td>
-    </tr>
-    <tr>
-      <th>368</th>
-      <td>brandy honda cb 300r pc-corrente 110 reg pc-co...</td>
-      <td>HONDA PC 110 300R CB BRANDY</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>370</th>
-      <td>brandy yamaha fazer 150 pc-corrente reg pc-cor...</td>
-      <td>PC 150 FAZER BRANDY YAMAHA</td>
-      <td>HONDA PC 50</td>
-      <td>HONDA PC 50</td>
-      <td>YAMAHA FAZER YS150 150</td>
-    </tr>
-    <tr>
-      <th>386</th>
-      <td>cb 300r top</td>
-      <td>HONDA CB 300R TOP</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KAHENA TOP</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>387</th>
-      <td>xtz 125 top</td>
-      <td>YAMAHA XTZ 125 TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA XTZ 125</td>
-    </tr>
-    <tr>
-      <th>390</th>
-      <td>ys 250 fazer top</td>
-      <td>YAMAHA TOP FAZER 250</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA FAZER YS250 250</td>
-    </tr>
-    <tr>
-      <th>512</th>
-      <td>top fazer 150 nr</td>
-      <td>YAMAHA TOP 150 FAZER</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA FAZER YS150 150</td>
-    </tr>
-    <tr>
-      <th>525</th>
-      <td>cb 300</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>549</th>
-      <td>xl 125</td>
-      <td>HONDA 125 XL</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>HONDA XL 700V TRANSALP</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-    </tr>
-    <tr>
-      <th>563</th>
-      <td>tener 250 13</td>
-      <td>250</td>
-      <td>['ACELLERA ACX 250F 250', 'ACELLERA SPORTLANDE...</td>
-      <td>KAWASAKI NINJA 250</td>
-      <td>HONDA CBR 250</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>17738</th>
-      <td>cb 300 max</td>
-      <td>HONDA CB 300 MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN MAX</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>17801</th>
-      <td>ninja 250r 300 nr</td>
-      <td>KAWASAKI 300 NINJA 50R</td>
-      <td>MARVA ONIX 50R 50</td>
-      <td>MARVA ONIX 50R 50</td>
-      <td>KAWASAKI NINJA 300</td>
-    </tr>
-    <tr>
-      <th>17806</th>
-      <td>xl 125 nr</td>
-      <td>HONDA 125 XL</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>HONDA XL 700V TRANSALP</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-    </tr>
-    <tr>
-      <th>17814</th>
-      <td>top xtz 125 nr</td>
-      <td>YAMAHA XTZ 125 TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA XTZ 125</td>
-    </tr>
-    <tr>
-      <th>17815</th>
-      <td>top ys 250 fazer nr</td>
-      <td>YAMAHA TOP FAZER 250</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA FAZER YS250 250</td>
-    </tr>
-    <tr>
-      <th>17826</th>
-      <td>biz 110 14</td>
-      <td>HONDA BIZ 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA CRF 110 150 110/150</td>
-    </tr>
-    <tr>
-      <th>17862</th>
-      <td>biz 125 sprocket set</td>
-      <td>HONDA BIZ 125 ROCKET</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>TRIUMPH ROCKET</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-    </tr>
-    <tr>
-      <th>17863</th>
-      <td>nxr 150 50 sprocket set</td>
-      <td>HONDA NXR 50 150 ROCKET</td>
-      <td>HONDA NXR 150 BROS BROZ</td>
-      <td>TRIUMPH ROCKET</td>
-      <td>HONDA NXR 150 BROS BROZ</td>
-    </tr>
-    <tr>
-      <th>17891</th>
-      <td>biz 110 duas</td>
-      <td>HONDA BIZ 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA CRF 110 150 110/150</td>
-    </tr>
-    <tr>
-      <th>17902</th>
-      <td>xt 250 tenere duas</td>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-    </tr>
-    <tr>
-      <th>17911</th>
-      <td>cb 300 duas</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>17921</th>
-      <td>biz 110</td>
-      <td>HONDA BIZ 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA CRF 110 150 110/150</td>
-    </tr>
-    <tr>
-      <th>17923</th>
-      <td>bz 125 p-184 p21b-</td>
-      <td>125</td>
-      <td>['BIRELLI BW 125', 'BRAVAX BVX 125', 'GARINNI ...</td>
-      <td>KTM SX 125</td>
-      <td>HONDA CB 125</td>
-    </tr>
-    <tr>
-      <th>17938</th>
-      <td>max 125 hunter</td>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-    </tr>
-    <tr>
-      <th>17971</th>
-      <td>biz 110 duas</td>
-      <td>HONDA BIZ 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA CRF 110 150 110/150</td>
-    </tr>
-    <tr>
-      <th>17992</th>
-      <td>cb 300 duas</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>18010</th>
-      <td>top ys 250 fazer fz</td>
-      <td>YAMAHA TOP FAZER 250</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA FAZER YS250 250</td>
-    </tr>
-    <tr>
-      <th>18011</th>
-      <td>xl 125</td>
-      <td>HONDA 125 XL</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>HONDA XL 700V TRANSALP</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-    </tr>
-    <tr>
-      <th>18068</th>
-      <td>cb 300</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>18074</th>
-      <td>cb 250f twister</td>
-      <td>HONDA CB 250F TWISTER</td>
-      <td>HONDA TWISTER CBX 250</td>
-      <td>HONDA TWISTER CBX 250</td>
-      <td>HONDA CB 250 250F</td>
-    </tr>
-    <tr>
-      <th>18097</th>
-      <td>top ybr 125 nr</td>
-      <td>YAMAHA 125 YBR TOP</td>
-      <td>YAMAHA FACTOR YBR 125 YBR125</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA FACTOR YBR 125 YBR125</td>
-    </tr>
-    <tr>
-      <th>18102</th>
-      <td>top ninja 250r nr</td>
-      <td>KAWASAKI TOP NINJA 50R</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAWASAKI NINJA 250</td>
-    </tr>
-    <tr>
-      <th>18106</th>
-      <td>top ninja 250r 300 nr</td>
-      <td>KAWASAKI TOP 300 NINJA 50R</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAWASAKI NINJA 300</td>
-    </tr>
-    <tr>
-      <th>18108</th>
-      <td>top yzf r3 nr</td>
-      <td>YAMAHA YZF TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA YZF R1</td>
-    </tr>
-    <tr>
-      <th>18109</th>
-      <td>top yzf r3 mt nr</td>
-      <td>YAMAHA YZF TOP</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA YZF R1</td>
-    </tr>
-    <tr>
-      <th>18111</th>
-      <td>top biz 125 nr</td>
-      <td>HONDA BIZ 125 TOP</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>KAHENA TOP</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-    </tr>
-    <tr>
-      <th>18113</th>
-      <td>top ys 250 fazer fz nr</td>
-      <td>YAMAHA TOP FAZER 250</td>
-      <td>KAHENA TOP</td>
-      <td>KAHENA TOP</td>
-      <td>YAMAHA FAZER YS250 250</td>
-    </tr>
-    <tr>
-      <th>18124</th>
-      <td>top cb 300r nr</td>
-      <td>HONDA CB 300R TOP</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KAHENA TOP</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>18181</th>
-      <td>cb 300</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
-    <tr>
-      <th>18206</th>
-      <td>cb 300</td>
-      <td>HONDA CB 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>KTM XC 300</td>
-      <td>HONDA CB 300R 300 CB300</td>
-    </tr>
   </tbody>
 </table>
-<p>1122 rows × 5 columns</p>
 </div>
 </div>
 
@@ -15152,7 +14608,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Melhorando-a-classificação">Melhorando a classificação<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Melhorando-a-classifica%C3%A7%C3%A3o">¶</a></h3>
+<h3 id="Melhorando-a-classifica&#231;&#227;o">Melhorando a classifica&#231;&#227;o<a class="anchor-link" href="#Melhorando-a-classifica&#231;&#227;o">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -15205,7 +14661,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18237, 31)</pre>
+<pre>(18327, 9)</pre>
 </div>
 
 </div>
@@ -15238,7 +14694,7 @@ Tempo decorrido: 72.3 segundos.
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -15265,7 +14721,7 @@ Tempo decorrido: 72.3 segundos.
   <tbody>
     <tr>
       <th>0</th>
-      <td>HONDA CG 150 TIT AN TITAN FAN</td>
+      <td>TITAN HONDA FAN CG TIT 150 AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
@@ -15273,7 +14729,7 @@ Tempo decorrido: 72.3 segundos.
     </tr>
     <tr>
       <th>1</th>
-      <td>CG HONDA TIT AN 125 CARGO TITAN</td>
+      <td>TITAN HONDA CG CARGO TIT 125 AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
@@ -15281,7 +14737,7 @@ Tempo decorrido: 72.3 segundos.
     </tr>
     <tr>
       <th>2</th>
-      <td>HONDA 125 CG FAN</td>
+      <td>125 CG HONDA FAN</td>
       <td>HONDA CG FAN</td>
       <td>HONDA CG FAN</td>
       <td>HONDA CG FAN</td>
@@ -15319,42 +14775,42 @@ Tempo decorrido: 72.3 segundos.
 <div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"APLICACAOFIM"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="c1">#print(i)</span>
     <span class="c1"># se APLICACAOSVC==APLICACAOMNB ==&gt; já aplicado pelo df.assign</span>
     <span class="c1"># se APLICACAOSVC!=APLICACAOMNB</span>
-    <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
-        <span class="c1"># se APLICAÇÃO for sem valor ('XXX') ==&gt; APLICACAOFIM=[APLICACAOSVC,APLICACAOMNB]</span>
-        <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">'XXX'</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
+        <span class="c1"># se APLICAÇÃO for sem valor (&#39;XXX&#39;) ==&gt; APLICACAOFIM=[APLICACAOSVC,APLICACAOMNB]</span>
+        <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;XXX&#39;</span><span class="p">:</span>
             <span class="c1"># APLICACAOFIM será a lista com os dois valores</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
             <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
-        <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
             <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
-        <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
             <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
-        <span class="k">elif</span> <span class="s2">","</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span> <span class="c1"># se tiver vírgula, a APLICACAO é uma lista</span>
-            <span class="n">aplictemp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"["</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">", "</span><span class="p">,</span><span class="s2">";"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span><span class="s2">";"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"'"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"]"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
-            <span class="n">aplictemp</span><span class="o">=</span><span class="n">aplictemp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="s2">&quot;,&quot;</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]:</span> <span class="c1"># se tiver vírgula, a APLICACAO é uma lista</span>
+            <span class="n">aplictemp</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">aplictemp</span><span class="o">=</span><span class="n">aplictemp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
             <span class="c1"># se APLICACAOSVC estiver na lista</span>
-            <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">aplictemp</span><span class="p">:</span>
-                <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">aplictemp</span><span class="p">:</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
                 <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
             <span class="c1"># se APLICACAOMNB estiver na lista</span>
-            <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">aplictemp</span><span class="p">:</span>
-                <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">aplictemp</span><span class="p">:</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
                 <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">aplictemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
-                <span class="n">aplictemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">aplictemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">aplictemp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span>
                 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">)</span>
                 <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
         <span class="k">else</span><span class="p">:</span> <span class="c1"># caso seja um valor (diferente de ambos os classificadores)</span>
             <span class="c1"># APLICACAO!=APLICACAOSVC!=APLICACAOMNB ==&gt; APLICACAOFIM=[APLICACAO,APLICACAOSVC,APLICACAOMNB]</span>
-            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAO'</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
             <span class="k">continue</span> <span class="c1"># passa para o próximo i</span>
 </pre></div>
 
@@ -15366,7 +14822,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recomparação-das-classificações">Recomparação das classificações<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Recompara%C3%A7%C3%A3o-das-classifica%C3%A7%C3%B5es">¶</a></h3>
+<h3 id="Recompara&#231;&#227;o-das-classifica&#231;&#245;es">Recompara&#231;&#227;o das classifica&#231;&#245;es<a class="anchor-link" href="#Recompara&#231;&#227;o-das-classifica&#231;&#245;es">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -15376,7 +14832,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Multinomial NB</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -15395,7 +14851,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(1122, 31)</pre>
+<pre>(1143, 9)</pre>
 </div>
 
 </div>
@@ -15410,7 +14866,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOSVC'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -15429,7 +14885,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(645, 31)</pre>
+<pre>(611, 9)</pre>
 </div>
 
 </div>
@@ -15444,7 +14900,7 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOMNB'</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -15463,7 +14919,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(634, 31)</pre>
+<pre>(681, 9)</pre>
 </div>
 
 </div>
@@ -15478,10 +14934,10 @@ Tempo decorrido: 72.3 segundos.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
-<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com '[' ou False caso contrário.</span>
+<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com &#39;[&#39; ou False caso contrário.</span>
 <span class="n">filtro</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]):</span>
-    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">'['</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -15516,7 +14972,7 @@ Tempo decorrido: 72.3 segundos.
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -15575,7 +15031,7 @@ Tempo decorrido: 72.3 segundos.
     </tr>
     <tr>
       <th>632</th>
-      <td>HONDA CB 300 MAX</td>
+      <td>HONDA CB MAX 300</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
       <td>HONDA CB 300R 300 CB300</td>
@@ -15616,7 +15072,7 @@ Tempo decorrido: 72.3 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(157, 31)</pre>
+<pre>(149, 9)</pre>
 </div>
 
 </div>
@@ -15637,7 +15093,7 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exportando-o-DataSet-para-classificação-manual">Exportando o DataSet para classificação manual<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/d37b3111-8449-4184-b40c-6ec5e593240e/5_NLP_modeloClassificador.html#Exportando-o-DataSet-para-classifica%C3%A7%C3%A3o-manual">¶</a></h2>
+<h2 id="Exportando-o-DataSet-para-classifica&#231;&#227;o-manual">Exportando o DataSet para classifica&#231;&#227;o manual<a class="anchor-link" href="#Exportando-o-DataSet-para-classifica&#231;&#227;o-manual">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15654,7 +15110,7 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 <div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">'dataframe_modelos_classificado_manual.csv'</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15675,7 +15131,7 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 <div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'dataframe_modelos_classificado_manual.xlsx'</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15685,10 +15141,9 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 </div>
     </div>
   </div>
-
+</body>
 
  
 
 
-
-</body></html>
+</html>

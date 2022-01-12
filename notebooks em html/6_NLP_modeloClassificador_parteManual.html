@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0147)file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head><meta charset="utf-8" />
 
 <title>6_NLP_modeloClassificador_parteManual</title>
 
-<script src="./6_NLP_modeloClassificador_parteManual_files/require.min.js.baixados"></script>
-<script src="./6_NLP_modeloClassificador_parteManual_files/jquery.min.js.baixados"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
 
@@ -13085,13 +13085,13 @@ div#notebook {
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
-<link rel="stylesheet" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/custom.css">
+<link rel="stylesheet" href="custom.css">
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="./6_NLP_modeloClassificador_parteManual_files/latest.js.baixados"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config;executed=true">
+    <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -13108,124 +13108,29 @@ div#notebook {
         }
     });
     </script>
-    <!-- End of mathjax configuration --><script type="text/javascript" async="" src="./6_NLP_modeloClassificador_parteManual_files/MathJax.js.baixados"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
-.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
-.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
-.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
-</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_About.MathJax_MousePost {outline: none}
-.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-.MathJax_MenuItem {padding: 2px 2em; background: transparent}
-.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
-.MathJax_MenuActive .MathJax_MenuArrow {color: white}
-.MathJax_MenuArrow.RTL {left: .5em; right: auto}
-.MathJax_MenuCheck {position: absolute; left: .7em}
-.MathJax_MenuCheck.RTL {right: .7em; left: auto}
-.MathJax_MenuRadioCheck {position: absolute; left: 1em}
-.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
-.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
-.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
-.MathJax_MenuDisabled {color: GrayText}
-.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
-.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
-.MathJax_ContextMenu:focus {outline: none}
-.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
-#MathJax_AboutClose {top: .2em; right: .2em}
-.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
-.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
-.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
-.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
-.MathJax_MenuClose:hover span {background-color: #CCC!important}
-.MathJax_MenuClose:hover:focus {outline: none}
-</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
-</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
-.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
-</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
-#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
-#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
-</style><style type="text/css">.MathJax_Preview {color: #888}
-#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
-#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
-.MathJax_Error {color: #CC0000; font-style: italic}
-</style><style type="text/css">.MJXp-script {font-size: .8em}
-.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
-.MJXp-bold {font-weight: bold}
-.MJXp-italic {font-style: italic}
-.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
-.MJXp-largeop {font-size: 150%}
-.MJXp-largeop.MJXp-int {vertical-align: -.2em}
-.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
-.MJXp-display {display: block; text-align: center; margin: 1em 0}
-.MJXp-math span {display: inline-block}
-.MJXp-box {display: block!important; text-align: center}
-.MJXp-box:after {content: " "}
-.MJXp-rule {display: block!important; margin-top: .1em}
-.MJXp-char {display: block!important}
-.MJXp-mo {margin: 0 .15em}
-.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
-.MJXp-denom {display: inline-table!important; width: 100%}
-.MJXp-denom > * {display: table-row!important}
-.MJXp-surd {vertical-align: top}
-.MJXp-surd > * {display: block!important}
-.MJXp-script-box > *  {display: table!important; height: 50%}
-.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
-.MJXp-script-box > *:last-child > * {vertical-align: bottom}
-.MJXp-script-box > * > * > * {display: block!important}
-.MJXp-mphantom {visibility: hidden}
-.MJXp-munderover, .MJXp-munder {display: inline-table!important}
-.MJXp-over {display: inline-block!important; text-align: center}
-.MJXp-over > * {display: block!important}
-.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
-.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
-.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
-.MJXp-mtr {display: table-row!important}
-.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
-.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-mlabeledtr {display: table-row!important}
-.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
-.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
-.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
-.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
-.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
-.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
-.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
-.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
-.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
-.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
-.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
-.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
-.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
-.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
-</style></head>
-<body style=""><div id="MathJax_Message" style="display: none;"></div>
+    <!-- End of mathjax configuration --></head>
+<body>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notebook-Jupyter-6_NLP_modeloClassificador_parteManual"><em>Notebook Jupyter</em> 6_NLP_modeloClassificador_parteManual<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Notebook-Jupyter-6_NLP_modeloClassificador_parteManual">¶</a></h1>
+<h1 id="Notebook-Jupyter-6_NLP_modeloClassificador_parteManual"><em>Notebook Jupyter</em> 6_NLP_modeloClassificador_parteManual<a class="anchor-link" href="#Notebook-Jupyter-6_NLP_modeloClassificador_parteManual">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Classificação-da-Aplicação-divergente-de-forma-manual">Classificação da Aplicação divergente de forma manual<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Classifica%C3%A7%C3%A3o-da-Aplica%C3%A7%C3%A3o-divergente-de-forma-manual">¶</a></h1>
+<h1 id="Classifica&#231;&#227;o-da-Aplica&#231;&#227;o-divergente-de-forma-manual">Classifica&#231;&#227;o da Aplica&#231;&#227;o divergente de forma manual<a class="anchor-link" href="#Classifica&#231;&#227;o-da-Aplica&#231;&#227;o-divergente-de-forma-manual">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Importando-bibliotecas">Importando bibliotecas<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Importando-bibliotecas">¶</a></h2>
+<h2 id="Importando-bibliotecas">Importando bibliotecas<a class="anchor-link" href="#Importando-bibliotecas">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13248,7 +13153,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data e hora da execução do script</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Código executado em {time.strftime("</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M", time.localtime(time.time()))}'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Código executado em {time.strftime(&quot;</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M&quot;, time.localtime(time.time()))}&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13265,7 +13170,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 10/01/2022 às 20:34
+<pre>Código executado em 12/01/2022 às 19:38
 </pre>
 </div>
 </div>
@@ -13277,7 +13182,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Carregando-dataset">Carregando dataset<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Carregando-dataset">¶</a></h2>
+<h2 id="Carregando-dataset">Carregando dataset<a class="anchor-link" href="#Carregando-dataset">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13287,7 +13192,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importa base de dados com os modelos já determinados para um dataframe</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'dataframe_modelos_classificado_manual.xlsx'</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual.xlsx&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -13307,7 +13212,7 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -13334,7 +13239,7 @@ div#notebook {
   <tbody>
     <tr>
       <th>0</th>
-      <td>HONDA CG 150 TIT AN TITAN FAN</td>
+      <td>TITAN HONDA FAN CG TIT 150 AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
@@ -13342,7 +13247,7 @@ div#notebook {
     </tr>
     <tr>
       <th>1</th>
-      <td>CG HONDA TIT AN 125 CARGO TITAN</td>
+      <td>TITAN HONDA CG CARGO TIT 125 AN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
@@ -13350,7 +13255,7 @@ div#notebook {
     </tr>
     <tr>
       <th>2</th>
-      <td>HONDA 125 CG FAN</td>
+      <td>125 CG HONDA FAN</td>
       <td>HONDA CG FAN</td>
       <td>HONDA CG FAN</td>
       <td>HONDA CG FAN</td>
@@ -13408,7 +13313,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18237, 31)</pre>
+<pre>(18327, 9)</pre>
 </div>
 
 </div>
@@ -13420,7 +13325,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Determinando-os-registros-divergentes">Determinando os registros divergentes<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Determinando-os-registros-divergentes">¶</a></h3>
+<h3 id="Determinando-os-registros-divergentes">Determinando os registros divergentes<a class="anchor-link" href="#Determinando-os-registros-divergentes">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13430,10 +13335,10 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
-<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com '[' ou False caso contrário.</span>
+<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com &#39;[&#39; ou False caso contrário.</span>
 <span class="n">filtro</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]):</span>
-    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">'['</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -13468,7 +13373,7 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -13527,7 +13432,7 @@ div#notebook {
     </tr>
     <tr>
       <th>632</th>
-      <td>HONDA CB 300 MAX</td>
+      <td>HONDA CB MAX 300</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
       <td>HONDA CB 300R 300 CB300</td>
@@ -13543,7 +13448,7 @@ div#notebook {
     </tr>
     <tr>
       <th>964</th>
-      <td>HONDA NX XR 200</td>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
@@ -13599,7 +13504,7 @@ div#notebook {
     </tr>
     <tr>
       <th>2334</th>
-      <td>YAMAHA MAX 150 FAZER</td>
+      <td>YAMAHA 150 FAZER MAX</td>
       <td>XXX</td>
       <td>SHINERAY MAX 150</td>
       <td>YAMAHA FAZER YS150 150</td>
@@ -13615,14 +13520,14 @@ div#notebook {
     </tr>
     <tr>
       <th>2739</th>
-      <td>HONDA CB 110 300</td>
+      <td>HONDA CB 300 110</td>
       <td>XXX</td>
       <td>HONDA CRF 110 150 110/150</td>
       <td>HONDA CB 300R 300 CB300</td>
       <td>['HONDA CRF 110 150 110/150', 'HONDA CB 300R 3...</td>
     </tr>
     <tr>
-      <th>2895</th>
+      <th>2898</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13630,7 +13535,7 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>2930</th>
+      <th>2933</th>
       <td>YAMAHA TENERE XT 250</td>
       <td>XXX</td>
       <td>YAMAHA XTZ TENERE 250</td>
@@ -13638,7 +13543,7 @@ div#notebook {
       <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
     </tr>
     <tr>
-      <th>2947</th>
+      <th>2950</th>
       <td>YAMAHA TENERE XT 250</td>
       <td>XXX</td>
       <td>YAMAHA XTZ TENERE 250</td>
@@ -13646,7 +13551,7 @@ div#notebook {
       <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
     </tr>
     <tr>
-      <th>3132</th>
+      <th>3135</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13654,7 +13559,7 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>3152</th>
+      <th>3155</th>
       <td>YAMAHA TENERE XT 250</td>
       <td>XXX</td>
       <td>YAMAHA XTZ TENERE 250</td>
@@ -13662,72 +13567,72 @@ div#notebook {
       <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
     </tr>
     <tr>
-      <th>3464</th>
-      <td>HONDA 110 CBX 250</td>
+      <th>3467</th>
+      <td>HONDA 250 CBX 110</td>
       <td>XXX</td>
       <td>HONDA CBX 1000</td>
       <td>HONDA TWISTER CBX 250</td>
       <td>['HONDA CBX 1000', 'HONDA TWISTER CBX 250']</td>
     </tr>
     <tr>
-      <th>3511</th>
-      <td>YAMAHA WR 150 FAZER</td>
+      <th>3514</th>
+      <td>YAMAHA 150 FAZER WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>3596</th>
-      <td>YAMAHA WR 150 FAZER</td>
+      <th>3599</th>
+      <td>YAMAHA 150 FAZER WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>3796</th>
-      <td>HONDA NX XR 200</td>
+      <th>3799</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>3839</th>
-      <td>HONDA NX XR 200</td>
+      <th>3842</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>4322</th>
-      <td>HONDA NX XR 200</td>
+      <th>4325</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>4348</th>
-      <td>HONDA NX XR 200</td>
+      <th>4351</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>4368</th>
-      <td>HONDA NX XR 200</td>
+      <th>4371</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>4389</th>
-      <td>HONDA NX XR 200</td>
+      <th>4392</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
@@ -13742,23 +13647,31 @@ div#notebook {
       <td>...</td>
     </tr>
     <tr>
-      <th>14435</th>
-      <td>YAMAHA WR 150 FAZER</td>
+      <th>14437</th>
+      <td>100 MOTO</td>
+      <td>XXX</td>
+      <td>APRILIA MOTO</td>
+      <td>KAWASAKI KX 100 125 100/125</td>
+      <td>['APRILIA MOTO', 'KAWASAKI KX 100 125 100/125']</td>
+    </tr>
+    <tr>
+      <th>14490</th>
+      <td>YAMAHA 150 FAZER WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>14519</th>
-      <td>YAMAHA MOTO 150 FAZER</td>
+      <th>14574</th>
+      <td>YAMAHA 150 FAZER MOTO</td>
       <td>XXX</td>
       <td>APRILIA MOTO</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['APRILIA MOTO', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>14540</th>
+      <th>14595</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13766,7 +13679,7 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>14651</th>
+      <th>14706</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13774,31 +13687,31 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>14674</th>
-      <td>HONDA NX XR 200</td>
+      <th>14729</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>14967</th>
-      <td>HONDA 125 WR XL</td>
+      <th>15022</th>
+      <td>HONDA 125 XL WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>HONDA XL XLS 125 XL125 XL125S</td>
       <td>['HUSQVARNA WR', 'HONDA XL XLS 125 XL125 XL125S']</td>
     </tr>
     <tr>
-      <th>14969</th>
-      <td>HONDA WR 200 CBX</td>
+      <th>15024</th>
+      <td>HONDA WR CBX 200</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>HONDA STRADA CBX 200</td>
       <td>['HUSQVARNA WR', 'HONDA STRADA CBX 200']</td>
     </tr>
     <tr>
-      <th>15057</th>
+      <th>15114</th>
       <td>YAMAHA TENERE XT 250</td>
       <td>XXX</td>
       <td>YAMAHA XTZ TENERE 250</td>
@@ -13806,79 +13719,71 @@ div#notebook {
       <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
     </tr>
     <tr>
-      <th>15083</th>
-      <td>YAMAHA WR 150 FAZER</td>
+      <th>15140</th>
+      <td>YAMAHA 150 FAZER WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>15168</th>
-      <td>HONDA BIZ 110 MOTO</td>
+      <th>15225</th>
+      <td>HONDA BIZ MOTO 110</td>
       <td>HONDA BIZ 100 C100 125 C125</td>
       <td>APRILIA MOTO</td>
       <td>HONDA CRF 110 150 110/150</td>
       <td>['HONDA BIZ 100 C100 125 C125', 'APRILIA MOTO'...</td>
     </tr>
     <tr>
-      <th>15562</th>
-      <td>HONDA CB 110 300</td>
+      <th>15619</th>
+      <td>HONDA CB 300 110</td>
       <td>XXX</td>
       <td>HONDA CRF 110 150 110/150</td>
       <td>HONDA CB 300R 300 CB300</td>
       <td>['HONDA CRF 110 150 110/150', 'HONDA CB 300R 3...</td>
     </tr>
     <tr>
-      <th>15680</th>
-      <td>YAMAHA WR 150 FAZER</td>
+      <th>15737</th>
+      <td>YAMAHA 150 FAZER WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>15705</th>
-      <td>HONDA BIZ 110 EVO</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>SUNDOWN WEB EVO</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>['HONDA BIZ 100 C100 125 C125', 'SUNDOWN WEB E...</td>
-    </tr>
-    <tr>
-      <th>15752</th>
-      <td>HONDA 110 CRF 230</td>
+      <th>15809</th>
+      <td>HONDA CRF 230 110</td>
       <td>XXX</td>
       <td>HONDA CRF 230 230F 250 250F</td>
       <td>HONDA CRF 110 150 110/150</td>
       <td>['HONDA CRF 230 230F 250 250F', 'HONDA CRF 110...</td>
     </tr>
     <tr>
-      <th>15760</th>
-      <td>YAMAHA WR 150 FAZER</td>
+      <th>15817</th>
+      <td>YAMAHA 150 FAZER WR</td>
       <td>XXX</td>
       <td>HUSQVARNA WR</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>15878</th>
-      <td>YAMAHA MAX 150 FAZER</td>
+      <th>15935</th>
+      <td>YAMAHA 150 FAZER MAX</td>
       <td>XXX</td>
       <td>SHINERAY MAX 150</td>
       <td>YAMAHA FAZER YS150 150</td>
       <td>['SHINERAY MAX 150', 'YAMAHA FAZER YS150 150']</td>
     </tr>
     <tr>
-      <th>15889</th>
-      <td>HONDA CB 300 MAX</td>
+      <th>15946</th>
+      <td>HONDA CB MAX 300</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
       <td>HONDA CB 300R 300 CB300</td>
       <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
     </tr>
     <tr>
-      <th>15921</th>
+      <th>15978</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13886,7 +13791,7 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>16160</th>
+      <th>16217</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13894,7 +13799,7 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>16209</th>
+      <th>16266</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13902,15 +13807,15 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>16343</th>
-      <td>HONDA NX XR 200</td>
+      <th>16400</th>
+      <td>HONDA XR NX 200</td>
       <td>XXX</td>
       <td>HONDA XR</td>
       <td>HONDA NX 150 200 250</td>
       <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
     </tr>
     <tr>
-      <th>17161</th>
+      <th>17231</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13918,15 +13823,15 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>17302</th>
-      <td>HONDA 125 RACING XL</td>
+      <th>17372</th>
+      <td>HONDA 125 XL RACING</td>
       <td>XXX</td>
       <td>SHINERAY RACING 200</td>
       <td>HONDA XL XLS 125 XL125 XL125S</td>
       <td>['SHINERAY RACING 200', 'HONDA XL XLS 125 XL12...</td>
     </tr>
     <tr>
-      <th>17488</th>
+      <th>17558</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13934,39 +13839,39 @@ div#notebook {
       <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
     </tr>
     <tr>
-      <th>17525</th>
-      <td>HONDA BIZ 110 MOTO</td>
+      <th>17595</th>
+      <td>HONDA BIZ MOTO 110</td>
       <td>HONDA BIZ 100 C100 125 C125</td>
       <td>APRILIA MOTO</td>
       <td>HONDA CRF 110 150 110/150</td>
       <td>['HONDA BIZ 100 C100 125 C125', 'APRILIA MOTO'...</td>
     </tr>
     <tr>
-      <th>17603</th>
-      <td>HONDA 110 CRF 230</td>
+      <th>17673</th>
+      <td>HONDA CRF 230 110</td>
       <td>XXX</td>
       <td>HONDA CRF 230 230F 250 250F</td>
       <td>HONDA CRF 110 150 110/150</td>
       <td>['HONDA CRF 230 230F 250 250F', 'HONDA CRF 110...</td>
     </tr>
     <tr>
-      <th>17655</th>
-      <td>HONDA CB 300 MAX</td>
+      <th>17725</th>
+      <td>HONDA CB MAX 300</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
       <td>HONDA CB 300R 300 CB300</td>
       <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
     </tr>
     <tr>
-      <th>17738</th>
-      <td>HONDA CB 300 MAX</td>
+      <th>17808</th>
+      <td>HONDA CB MAX 300</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
       <td>HONDA CB 300R 300 CB300</td>
       <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
     </tr>
     <tr>
-      <th>17902</th>
+      <th>17982</th>
       <td>YAMAHA TENERE XT 250</td>
       <td>XXX</td>
       <td>YAMAHA XTZ TENERE 250</td>
@@ -13974,7 +13879,7 @@ div#notebook {
       <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
     </tr>
     <tr>
-      <th>17938</th>
+      <th>18018</th>
       <td>125 HUNTER MAX</td>
       <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
@@ -13983,7 +13888,7 @@ div#notebook {
     </tr>
   </tbody>
 </table>
-<p>157 rows × 5 columns</p>
+<p>149 rows × 5 columns</p>
 </div>
 </div>
 
@@ -14017,7 +13922,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(157, 31)</pre>
+<pre>(149, 9)</pre>
 </div>
 
 </div>
@@ -14029,7 +13934,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Classificando-os-registros-divergentes">Classificando os registros divergentes<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Classificando-os-registros-divergentes">¶</a></h3>
+<h3 id="Classificando-os-registros-divergentes">Classificando os registros divergentes<a class="anchor-link" href="#Classificando-os-registros-divergentes">&#182;</a></h3>
 </div>
 </div>
 </div>Primeiramente, observando-se os registros verifica-se que são modelos repetidos, então faremos um dicionário com o par de escolha (modelo: aplicação).
@@ -14041,14 +13946,14 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ordena</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
     <span class="n">modelo</span><span class="o">=</span><span class="n">modelo</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
     <span class="n">modelo</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-    <span class="n">modelo</span><span class="o">=</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">modelo</span><span class="p">)</span>
+    <span class="n">modelo</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">modelo</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">modelo</span>
 <span class="k">def</span> <span class="nf">limpaColchetes</span><span class="p">(</span><span class="n">aplicacaofim</span><span class="p">):</span>
-    <span class="n">aplicacaofim</span><span class="o">=</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aplicacaofim</span><span class="p">)</span>
-    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"'"</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span>
-    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"["</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span>
-    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"]"</span><span class="p">,</span><span class="s1">''</span><span class="p">)</span>
-    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>
+    <span class="n">aplicacaofim</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">aplicacaofim</span><span class="p">)</span>
+    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">aplicacaofim</span><span class="o">=</span><span class="n">aplicacaofim</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">aplicacaofim</span>
 </pre></div>
 
@@ -14062,9 +13967,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lista</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Modelo'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">'Modelo'</span><span class="p">,</span><span class="s1">'APLICACAOFIM'</span><span class="p">]]</span>
-<span class="n">lista</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ordena</span><span class="p">)</span>
-<span class="n">lista</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">limpaColchetes</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lista</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Modelo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">,</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]]</span>
+<span class="n">lista</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ordena</span><span class="p">)</span>
+<span class="n">lista</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">limpaColchetes</span><span class="p">)</span>
 <span class="n">lista</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
@@ -14084,7 +13989,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(27, 2)</pre>
+<pre>(25, 2)</pre>
 </div>
 
 </div>
@@ -14125,7 +14030,7 @@ div#notebook {
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -14148,19 +14053,19 @@ div#notebook {
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>125 HUNTER MAX</td>
-      <td>[SUNDOWN HUNTER,  HONDA CT 125 HUNTER]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>125 HONDA RACING XL</td>
-      <td>[SHINERAY RACING 200,  HONDA XL XLS 125 XL125 ...</td>
+      <th>7</th>
+      <td>110 300 CB HONDA</td>
+      <td>[HONDA CRF 110 150 110/150,  HONDA CB 300R 300...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>110 230 CRF HONDA</td>
-      <td>[HONDA CRF 230 230F 250 250F,  HONDA CRF 110 1...</td>
+      <td>125 HONDA WR XL</td>
+      <td>[HUSQVARNA WR,  HONDA XL XLS 125 XL125 XL125S]</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>300 CB HONDA MAX</td>
+      <td>[SUNDOWN MAX,  HONDA CB 300R 300 CB300]</td>
     </tr>
   </tbody>
 </table>
@@ -14180,8 +14085,8 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># com essa lista bastará deixar a opção correta.</span>
 <span class="n">relacoes</span><span class="o">=</span><span class="p">{}</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]):</span>
-    <span class="n">relacoes</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lista</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]):</span>
+    <span class="n">relacoes</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -14213,44 +14118,38 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{'110 50 SHINERAY': ['AMAZONAS AME 110 AME-110', ' SHINERAY NEW 50'],
- '125 HUNTER MAX': ['SUNDOWN HUNTER', ' HONDA CT 125 HUNTER'],
- '110 250 CBX HONDA': ['HONDA CBX 1000', ' HONDA TWISTER CBX 250'],
- '110 230 CRF HONDA': ['HONDA CRF 230 230F 250 250F',
-  ' HONDA CRF 110 150 110/150'],
- '125 HONDA RACING XL': ['SHINERAY RACING 200',
-  ' HONDA XL XLS 125 XL125 XL125S'],
- '125 HONDA WR XL': ['HUSQVARNA WR', ' HONDA XL XLS 125 XL125 XL125S'],
- '500 CB GOLD HONDA': ['MVK FENIX GOLD', ' HONDA CB 500'],
- '110 BIZ EVO HONDA': ['HONDA BIZ 100 C100 125 C125',
-  ' SUNDOWN WEB EVO',
-  ' HONDA CRF 110 150 110/150'],
- '110 BIZ HONDA MOTO': ['HONDA BIZ 100 C100 125 C125',
-  ' APRILIA MOTO',
-  ' HONDA CRF 110 150 110/150'],
- '110 250 CB HONDA': ['HONDA CRF 110 150 110/150', ' HONDA CB 250 250F'],
- '110 300 CB HONDA': ['HONDA CRF 110 150 110/150', ' HONDA CB 300R 300 CB300'],
- '300 CB HONDA MAX': ['SUNDOWN MAX', ' HONDA CB 300R 300 CB300'],
- '600R CBR GOLD HONDA R60': ['YAMAHA YZF 600R 600',
-  ' BMW R60',
-  ' HONDA CBR 250'],
- '200 HONDA NX XR': ['HONDA XR', ' HONDA NX 150 200 250'],
- '250F CB CITY ERO HONDA TWISTER': ['HONDA TWISTER CBX 250',
-  ' KASINSKI ERO',
-  ' HONDA CB 250 250F'],
- '200 CBX HONDA WR': ['HUSQVARNA WR', ' HONDA STRADA CBX 200'],
- '100 MOTO': ['APRILIA MOTO', ' KAWASAKI KX 100 125 100/125'],
- '50 FOX JET SHINERAY SMART': ['MVK FOX', ' SHINERAY JET 50'],
- '150 BLACK FAZER YAMAHA': ['MVK BLACK STAR', ' YAMAHA FAZER YS150 150'],
- '150 FAZER GT YAMAHA': ['SUZUKI GT', ' YAMAHA FAZER YS150 150'],
- '250 FAZER GT YAMAHA': ['SUZUKI GT', ' YAMAHA FAZER YS250 250'],
- '150 FAZER MAX YAMAHA': ['SHINERAY MAX 150', ' YAMAHA FAZER YS150 150'],
- '150 FAZER MOTO YAMAHA': ['APRILIA MOTO', ' YAMAHA FAZER YS150 150'],
- '150 FAZER RACING YAMAHA': ['APRILIA SR RACING', ' YAMAHA FAZER YS150 150'],
- '250 TENERE XT YAMAHA': ['YAMAHA XTZ TENERE 250',
-  ' YAMAHA XT TENERE 660Z 660'],
- '150 FAZER WR YAMAHA': ['HUSQVARNA WR', ' YAMAHA FAZER YS150 150'],
- '150 MAX XTZ YAMAHA': ['YAMAHA XTZ 125', ' YAMAHA XTZ CROSSER 150']}</pre>
+<pre>{&#39;100 MOTO&#39;: [&#39;APRILIA MOTO&#39;, &#39; KAWASAKI KX 100 125 100/125&#39;],
+ &#39;125 HUNTER MAX&#39;: [&#39;SUNDOWN HUNTER&#39;, &#39; HONDA CT 125 HUNTER&#39;],
+ &#39;125 HONDA RACING XL&#39;: [&#39;SHINERAY RACING 200&#39;,
+  &#39; HONDA XL XLS 125 XL125 XL125S&#39;],
+ &#39;125 HONDA WR XL&#39;: [&#39;HUSQVARNA WR&#39;, &#39; HONDA XL XLS 125 XL125 XL125S&#39;],
+ &#39;110 250 CBX HONDA&#39;: [&#39;HONDA CBX 1000&#39;, &#39; HONDA TWISTER CBX 250&#39;],
+ &#39;110 BIZ HONDA MOTO&#39;: [&#39;HONDA BIZ 100 C100 125 C125&#39;,
+  &#39; APRILIA MOTO&#39;,
+  &#39; HONDA CRF 110 150 110/150&#39;],
+ &#39;110 250 CB HONDA&#39;: [&#39;HONDA CRF 110 150 110/150&#39;, &#39; HONDA CB 250 250F&#39;],
+ &#39;110 300 CB HONDA&#39;: [&#39;HONDA CRF 110 150 110/150&#39;, &#39; HONDA CB 300R 300 CB300&#39;],
+ &#39;500 CB GOLD HONDA&#39;: [&#39;MVK FENIX GOLD&#39;, &#39; HONDA CB 500&#39;],
+ &#39;300 CB HONDA MAX&#39;: [&#39;SUNDOWN MAX&#39;, &#39; HONDA CB 300R 300 CB300&#39;],
+ &#39;250F CB CITY ERO HONDA TWISTER&#39;: [&#39;HONDA TWISTER CBX 250&#39;,
+  &#39; KASINSKI ERO&#39;,
+  &#39; HONDA CB 250 250F&#39;],
+ &#39;110 230 CRF HONDA&#39;: [&#39;HONDA CRF 230 230F 250 250F&#39;,
+  &#39; HONDA CRF 110 150 110/150&#39;],
+ &#39;200 CBX HONDA WR&#39;: [&#39;HUSQVARNA WR&#39;, &#39; HONDA STRADA CBX 200&#39;],
+ &#39;200 HONDA NX XR&#39;: [&#39;HONDA XR&#39;, &#39; HONDA NX 150 200 250&#39;],
+ &#39;110 50 SHINERAY&#39;: [&#39;AMAZONAS AME 110 AME-110&#39;, &#39; SHINERAY NEW 50&#39;],
+ &#39;50 FOX JET SHINERAY SMART&#39;: [&#39;MVK FOX&#39;, &#39; SHINERAY JET 50&#39;],
+ &#39;150 FAZER GT YAMAHA&#39;: [&#39;SUZUKI GT&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
+ &#39;150 FAZER MAX YAMAHA&#39;: [&#39;SHINERAY MAX 150&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
+ &#39;150 FAZER MOTO YAMAHA&#39;: [&#39;APRILIA MOTO&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
+ &#39;150 FAZER RACING YAMAHA&#39;: [&#39;APRILIA SR RACING&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
+ &#39;150 FAZER WR YAMAHA&#39;: [&#39;HUSQVARNA WR&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
+ &#39;150 MAX XTZ YAMAHA&#39;: [&#39;YAMAHA XTZ 125&#39;, &#39; YAMAHA XTZ CROSSER 150&#39;],
+ &#39;150 BLACK FAZER YAMAHA&#39;: [&#39;MVK BLACK STAR&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
+ &#39;250 FAZER GT YAMAHA&#39;: [&#39;SUZUKI GT&#39;, &#39; YAMAHA FAZER YS250 250&#39;],
+ &#39;250 TENERE XT YAMAHA&#39;: [&#39;YAMAHA XTZ TENERE 250&#39;,
+  &#39; YAMAHA XT TENERE 660Z 660&#39;]}</pre>
 </div>
 
 </div>
@@ -14265,33 +14164,33 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Escolhas das relações realizada manualmente (somente 26 - deixamos uma de fora de propoósito.)</span>
-<span class="n">relacoes</span><span class="o">=</span><span class="p">{</span><span class="s1">'110 50 SHINERAY'</span><span class="p">:</span> <span class="s1">'SHINERAY NEW 50'</span><span class="p">,</span>
-          <span class="s1">'125 HUNTER MAX'</span><span class="p">:</span> <span class="s1">'SUNDOWN HUNTER'</span><span class="p">,</span>
-          <span class="s1">'110 250 CBX HONDA'</span><span class="p">:</span> <span class="s1">'HONDA TWISTER CBX 250'</span><span class="p">,</span>
-          <span class="s1">'110 230 CRF HONDA'</span><span class="p">:</span> <span class="s1">'HONDA CRF 230 230F 250 250F'</span><span class="p">,</span>
-          <span class="s1">'125 HONDA RACING XL'</span><span class="p">:</span> <span class="s1">'HONDA XL XLS 125 XL125 XL125S'</span><span class="p">,</span>
-          <span class="s1">'125 HONDA WR XL'</span><span class="p">:</span> <span class="s1">'HONDA XL XLS 125 XL125 XL125S'</span><span class="p">,</span>
-          <span class="s1">'500 CB GOLD HONDA'</span><span class="p">:</span> <span class="s1">'HONDA CB 500'</span><span class="p">,</span>
-          <span class="s1">'110 BIZ EVO HONDA'</span><span class="p">:</span> <span class="s1">'HONDA BIZ 100 C100 125 C125'</span><span class="p">,</span>
-          <span class="s1">'110 250 CB HONDA'</span><span class="p">:</span> <span class="s1">'HONDA CB 250 250F'</span><span class="p">,</span>
-          <span class="s1">'110 300 CB HONDA'</span><span class="p">:</span> <span class="s1">'HONDA CB 300R 300 CB300'</span><span class="p">,</span>
-          <span class="s1">'300 CB HONDA MAX'</span><span class="p">:</span> <span class="s1">'HONDA CB 300R 300 CB300'</span><span class="p">,</span>
-          <span class="s1">'600R CBR GOLD HONDA R60'</span><span class="p">:</span> <span class="s1">'HONDA CBR 250'</span><span class="p">,</span>
-          <span class="s1">'200 HONDA NX XR'</span><span class="p">:</span> <span class="s1">'HONDA NX 150 200 250'</span><span class="p">,</span>
-          <span class="s1">'250F CB CITY ERO HONDA TWISTER'</span><span class="p">:</span> <span class="s1">'HONDA TWISTER CBX 250'</span><span class="p">,</span>
-          <span class="s1">'200 CBX HONDA WR'</span><span class="p">:</span> <span class="s1">'HONDA STRADA CBX 200'</span><span class="p">,</span>
-          <span class="s1">'50 FOX JET SHINERAY SMART'</span><span class="p">:</span> <span class="s1">'SHINERAY JET 50'</span><span class="p">,</span>
-          <span class="s1">'150 BLACK FAZER YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS150 150'</span><span class="p">,</span>
-          <span class="s1">'150 FAZER GT YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS150 150'</span><span class="p">,</span>
-          <span class="s1">'250 FAZER GT YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS250 250'</span><span class="p">,</span>
-          <span class="s1">'150 FAZER MAX YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS150 150'</span><span class="p">,</span>
-          <span class="s1">'150 FAZER MOTO YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS150 150'</span><span class="p">,</span>
-          <span class="s1">'150 FAZER RACING YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS150 150'</span><span class="p">,</span>
-          <span class="s1">'250 TENERE XT YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA XTZ TENERE 250'</span><span class="p">,</span>
-          <span class="s1">'150 FAZER WR YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA FAZER YS150 150'</span><span class="p">,</span>
-          <span class="s1">'150 MAX XTZ YAMAHA'</span><span class="p">:</span> <span class="s1">'YAMAHA XTZ 125'</span><span class="p">,</span>
-          <span class="s1">'110 BIZ HONDA MOTO'</span><span class="p">:</span> <span class="s1">'HONDA BIZ 100 C100 125 C125'</span><span class="p">,</span>
-          <span class="s1">'160 BROS HONDA WR'</span><span class="p">:</span> <span class="s1">'HONDA NXR 150 BROS BROZ'</span><span class="p">}</span>
+<span class="n">relacoes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;110 50 SHINERAY&#39;</span><span class="p">:</span> <span class="s1">&#39;SHINERAY NEW 50&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;125 HUNTER MAX&#39;</span><span class="p">:</span> <span class="s1">&#39;SUNDOWN HUNTER&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;110 250 CBX HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA TWISTER CBX 250&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;110 230 CRF HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CRF 230 230F 250 250F&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;125 HONDA RACING XL&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA XL XLS 125 XL125 XL125S&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;125 HONDA WR XL&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA XL XLS 125 XL125 XL125S&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;500 CB GOLD HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 500&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;110 BIZ EVO HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA BIZ 100 C100 125 C125&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;110 250 CB HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 250 250F&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;110 300 CB HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 300R 300 CB300&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;300 CB HONDA MAX&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 300R 300 CB300&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;600R CBR GOLD HONDA R60&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CBR 250&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;200 HONDA NX XR&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA NX 150 200 250&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;250F CB CITY ERO HONDA TWISTER&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA TWISTER CBX 250&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;200 CBX HONDA WR&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA STRADA CBX 200&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;50 FOX JET SHINERAY SMART&#39;</span><span class="p">:</span> <span class="s1">&#39;SHINERAY JET 50&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 BLACK FAZER YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 FAZER GT YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;250 FAZER GT YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS250 250&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 FAZER MAX YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 FAZER MOTO YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 FAZER RACING YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;250 TENERE XT YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA XTZ TENERE 250&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 FAZER WR YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;150 MAX XTZ YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA XTZ 125&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;110 BIZ HONDA MOTO&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA BIZ 100 C100 125 C125&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;160 BROS HONDA WR&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA NXR 150 BROS BROZ&#39;</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -14304,13 +14203,13 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"APLICACAOFIM"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">'['</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">modelo</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">modelo</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
             <span class="n">modelo</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-            <span class="n">modelo</span><span class="o">=</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">modelo</span><span class="p">)</span>
+            <span class="n">modelo</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">modelo</span><span class="p">)</span>
             <span class="n">relacoes</span><span class="p">[</span><span class="n">modelo</span><span class="p">]</span>
         <span class="k">except</span><span class="p">:</span>
             <span class="k">continue</span>
@@ -14336,10 +14235,10 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
-<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com '[' ou False caso contrário.</span>
+<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com &#39;[&#39; ou False caso contrário.</span>
 <span class="n">filtro</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]):</span>
-    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">'['</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -14374,7 +14273,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(1, 31)</pre>
+<pre>(1, 9)</pre>
 </div>
 
 </div>
@@ -14401,10 +14300,10 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 <span class="c1"># {index: escolha} ==&gt; exemplo: {11: 1, 16: 1}</span>
 <span class="n">escolhas</span><span class="o">=</span><span class="p">{}</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
-<span class="n">fileName</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"escolhas.npy"</span>
+<span class="n">fileName</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;escolhas.npy&quot;</span>
 <span class="n">fileObj</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">fileObj</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-    <span class="n">escolhas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'escolhas.npy'</span><span class="p">)</span>
+    <span class="n">escolhas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;escolhas.npy&#39;</span><span class="p">)</span>
     <span class="n">escolhas</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">1</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">escolhas</span><span class="o">=</span><span class="p">{}</span>
@@ -14453,23 +14352,23 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 <div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"APLICACAOFIM"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">ultimo_i</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
     <span class="n">a</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">100000</span> <span class="ow">or</span> <span class="n">a</span><span class="o">==</span><span class="s1">'X'</span><span class="p">:</span> <span class="c1"># serve para cancelar e estabelecer um limite para as verificações até o índice i</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">100000</span> <span class="ow">or</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="c1"># serve para cancelar e estabelecer um limite para as verificações até o índice i</span>
         <span class="k">break</span>
-    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">'['</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
         <span class="c1"># guarda a lista das opções na variável</span>
-        <span class="n">aplictemp</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"["</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">", "</span><span class="p">,</span><span class="s2">";"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span><span class="s2">";"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"'"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"]"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
-        <span class="n">aplictemp</span><span class="o">=</span><span class="n">aplictemp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">';'</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">'Digite o número de uma das opções e tecle Enter:'</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">'Modelo: '</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Modelo'</span><span class="p">])</span>
+        <span class="n">aplictemp</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">aplictemp</span><span class="o">=</span><span class="n">aplictemp</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Digite o número de uma das opções e tecle Enter:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo: &#39;</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">])</span>
         <span class="k">for</span> <span class="n">n</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">):</span>
             <span class="n">aplictemp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">=</span><span class="n">aplicacao</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s1">')'</span><span class="p">,</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;)&#39;</span><span class="p">,</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
         <span class="n">pedeEscolha</span><span class="o">=</span><span class="kc">False</span>
         <span class="k">if</span> <span class="n">ultimo_i</span><span class="o">&gt;=</span><span class="n">i</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
@@ -14479,26 +14378,26 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
         <span class="k">if</span> <span class="n">pedeEscolha</span> <span class="ow">or</span> <span class="n">ultimo_i</span><span class="o">&lt;</span><span class="n">i</span><span class="p">:</span>
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="n">a</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Escolha uma das opções acima ou X para cancelar: '</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">'X'</span><span class="p">:</span>
+                    <span class="n">a</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Escolha uma das opções acima ou X para cancelar: &#39;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;X&#39;</span><span class="p">:</span>
                         <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
                         <span class="k">break</span>
                     <span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
                         <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Opção inválida.</span><span class="se">\n</span><span class="s2">Digite o número de uma das opções apresentadas:"</span><span class="p">)</span>
-                    <span class="c1">#print('Modelo: ', row['Modelo'])</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Opção inválida.</span><span class="se">\n</span><span class="s2">Digite o número de uma das opções apresentadas:&quot;</span><span class="p">)</span>
+                    <span class="c1">#print(&#39;Modelo: &#39;, row[&#39;Modelo&#39;])</span>
                     <span class="c1">#for n, aplicacao in enumerate(aplictemp):</span>
-                        <span class="c1">#print(' ',str(n+1)+')',aplictemp[n])</span>
+                        <span class="c1">#print(&#39; &#39;,str(n+1)+&#39;)&#39;,aplictemp[n])</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">break</span>
-            <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">'X'</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;X&#39;</span><span class="p">:</span>
                 <span class="k">break</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">'</span><span class="se">\n\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">escolhas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span> <span class="c1"># acrescenta ou atualiza a escolha no dicionário</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'escolhas.npy'</span><span class="p">,</span> <span class="n">escolhas</span><span class="p">)</span> <span class="c1"># salva o dicionário em um arquivo</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;escolhas.npy&#39;</span><span class="p">,</span> <span class="n">escolhas</span><span class="p">)</span> <span class="c1"># salva o dicionário em um arquivo</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">escolhas</span><span class="p">)</span>
 </pre></div>
 
@@ -14516,17 +14415,17 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>14382
+<pre>14437
 ********************
 Digite o número de uma das opções e tecle Enter:
-Modelo:  MOTO 100
+Modelo:  100 MOTO
   1) APRILIA MOTO
   2) KAWASAKI KX 100 125 100/125
 Escolha uma das opções acima ou X para cancelar: 2
 KAWASAKI KX 100 125 100/125 
 
 
-{14382: 2}
+{14437: 2}
 </pre>
 </div>
 </div>
@@ -14549,10 +14448,10 @@ KAWASAKI KX 100 125 100/125
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
-<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com '[' ou False caso contrário.</span>
+<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com &#39;[&#39; ou False caso contrário.</span>
 <span class="n">filtro</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'APLICACAOFIM'</span><span class="p">]):</span>
-    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">'['</span><span class="p">:</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -14587,7 +14486,7 @@ KAWASAKI KX 100 125 100/125
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -14604,21 +14503,9 @@ KAWASAKI KX 100 125 100/125
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>NUMERO DE ORDEM</th>
-      <th>ANOMES</th>
-      <th>COD.NCM</th>
-      <th>DESCRICAO DO CODIGO NCM</th>
-      <th>PAIS.OR</th>
       <th>PAIS DE ORIGEM</th>
-      <th>PAIS.AQ</th>
-      <th>PAIS DE AQUISICAO</th>
-      <th>UND.ESTAT.</th>
-      <th>UNIDADE DE MEDIDA</th>
-      <th>...</th>
-      <th>UNIDADE DESEMBARACO</th>
-      <th>INCOTERM</th>
-      <th>NAT.INFORMACAO</th>
-      <th>SITUACAO DO DESPACHO</th>
+      <th>DESCRICAO DO PRODUTO</th>
+      <th>VALOR UN.PROD.DOLAR</th>
       <th>DESCRICAO</th>
       <th>Modelo</th>
       <th>APLICACAO</th>
@@ -14630,7 +14517,6 @@ KAWASAKI KX 100 125 100/125
   <tbody>
   </tbody>
 </table>
-<p>0 rows × 31 columns</p>
 </div>
 </div>
 
@@ -14664,7 +14550,7 @@ KAWASAKI KX 100 125 100/125
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(0, 31)</pre>
+<pre>(0, 9)</pre>
 </div>
 
 </div>
@@ -14691,9 +14577,9 @@ KAWASAKI KX 100 125 100/125
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'APLICACAOSVC'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'APLICACAOMNB'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'APLICACAOFIM'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14725,7 +14611,7 @@ KAWASAKI KX 100 125 100/125
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
-<style scoped="">
+<style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
@@ -14749,34 +14635,34 @@ KAWASAKI KX 100 125 100/125
   </thead>
   <tbody>
     <tr>
-      <th>8413</th>
-      <td>ktr0152 ys 150 fazer</td>
-      <td>YAMAHA 150 FAZER</td>
-      <td>YAMAHA FAZER YS150 150</td>
+      <th>5922</th>
+      <td>biz 125 nr</td>
+      <td>HONDA 125 BIZ</td>
+      <td>HONDA BIZ 100 C100 125 C125</td>
     </tr>
     <tr>
-      <th>11925</th>
-      <td>lck001 sothis titan 150 fan</td>
-      <td>HONDA 150 TIT AN TITAN FAN</td>
+      <th>9065</th>
+      <td>titan160 19 15 allen</td>
+      <td>TITAN 160 TIT</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
-      <th>7759</th>
-      <td>nxr 125 bros</td>
-      <td>HONDA BROS 125 NXR</td>
+      <th>7400</th>
+      <td>darom xr 250 tornado</td>
+      <td>HONDA TORNADO 250 XR</td>
+      <td>HONDA TORNADO XR 250</td>
+    </tr>
+    <tr>
+      <th>17906</th>
+      <td>biz 110 14</td>
+      <td>HONDA BIZ 110</td>
+      <td>HONDA BIZ 100 C100 125 C125</td>
+    </tr>
+    <tr>
+      <th>15244</th>
+      <td>nxr 160 bros xre 428</td>
+      <td>HONDA BROS 160 XRE NXR</td>
       <td>HONDA NXR 150 BROS BROZ</td>
-    </tr>
-    <tr>
-      <th>2614</th>
-      <td>cpk23 yes 125</td>
-      <td>SUZUKI 125 YES</td>
-      <td>SUZUKI YES EN 125</td>
-    </tr>
-    <tr>
-      <th>1878</th>
-      <td>cg 125 cargo fan</td>
-      <td>HONDA CARGO 125 CG FAN</td>
-      <td>HONDA CG FAN</td>
     </tr>
   </tbody>
 </table>
@@ -14792,7 +14678,7 @@ KAWASAKI KX 100 125 100/125
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Criando-a-coluna-de-existência-de-Retentor-no-Kit">Criando a coluna de existência de Retentor no Kit<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Criando-a-coluna-de-exist%C3%AAncia-de-Retentor-no-Kit">¶</a></h2><p>Diante da possibilidade do kit de trasmissão vir acompanhado ou não do retentor, e esta questão influenciar no preço do produto, faz-se necessário criar uma coluna do tipo <em>boolean</em> para indicar ou não a presença do retentor no kit.</p>
+<h2 id="Criando-a-coluna-de-exist&#234;ncia-de-corrente-com-Retentor-no-Kit">Criando a coluna de exist&#234;ncia de corrente com Retentor no Kit<a class="anchor-link" href="#Criando-a-coluna-de-exist&#234;ncia-de-corrente-com-Retentor-no-Kit">&#182;</a></h2><p>Diante da possibilidade do kit de trasmissão vir acompanhado ou não de corrente com retentor, e esta questão influenciar no preço do produto, faz-se necessário criar uma coluna do tipo <em>boolean</em> para indicar ou não a presença de corrente com retentor no kit.</p>
 
 </div>
 </div>
@@ -14800,7 +14686,7 @@ KAWASAKI KX 100 125 100/125
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Após a análise do dataset, observou-se que todos os itens com retentor possuiam na descrição uma das seguintes opções:<br></p>
+<p>Após a análise do dataset, observou-se que todos os kits que possuíam corrente com retentor havia na descrição uma das seguintes opções:<br></p>
 <ul>
 <li>com retentor</li>
 <li>c/retentor</li>
@@ -14817,7 +14703,7 @@ KAWASAKI KX 100 125 100/125
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Função-que-determina-a-existência-de-retentor-no-kit-e-retorna-True|False">Função que determina a existência de retentor no kit e retorna True|False<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Fun%C3%A7%C3%A3o-que-determina-a-exist%C3%AAncia-de-retentor-no-kit-e-retorna-True|False">¶</a></h3>
+<h3 id="Fun&#231;&#227;o-que-determina-a-exist&#234;ncia-de-retentor-na-corrente-do-kit-e-retorna-True|False">Fun&#231;&#227;o que determina a exist&#234;ncia de retentor na corrente do kit e retorna True|False<a class="anchor-link" href="#Fun&#231;&#227;o-que-determina-a-exist&#234;ncia-de-retentor-na-corrente-do-kit-e-retorna-True|False">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14826,17 +14712,16 @@ KAWASAKI KX 100 125 100/125
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Função que determina a existência de retentor no kit e retorna True|False</span>
-<span class="k">def</span> <span class="nf">retentorAux</span><span class="p">(</span><span class="n">descricao</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retentorAux</span><span class="p">(</span><span class="n">descricao</span><span class="p">):</span>
     <span class="c1"># define o padrão de busca</span>
-    <span class="n">padrao</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'c/ *ret|com *ret'</span> <span class="c1">#r"(com|c/) *ret"</span>
+    <span class="n">padrao</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;c/ *ret|com *ret&#39;</span> <span class="c1">#r&quot;(com|c/) *ret&quot;</span>
     <span class="n">descricao</span><span class="o">=</span><span class="n">descricao</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">busca</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">padrao</span><span class="p">,</span> <span class="n">descricao</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">busca</span><span class="p">:</span>
         <span class="n">descricao</span> <span class="o">=</span> <span class="n">busca</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">descricao</span><span class="o">=</span><span class="s1">''</span>
+        <span class="n">descricao</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
         <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
 
@@ -14851,7 +14736,7 @@ KAWASAKI KX 100 125 100/125
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cria a coluna RETENTOR com a indicação True|False</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'RETENTOR'</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">'DESCRICAO DO PRODUTO'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">retentorAux</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;RETENTOR&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">retentorAux</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14862,7 +14747,7 @@ KAWASAKI KX 100 125 100/125
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exportando-o-DataSet-Classificado">Exportando o DataSet Classificado<a class="anchor-link" href="file:///C:/Users/479297~1/AppData/Local/Temp/MicrosoftEdgeDownloads/fcd71bd9-6979-496f-8e4a-77c049cf48de/6_NLP_modeloClassificador_parteManual.html#Exportando-o-DataSet-Classificado">¶</a></h2>
+<h2 id="Exportando-o-DataSet-Classificado">Exportando o DataSet Classificado<a class="anchor-link" href="#Exportando-o-DataSet-Classificado">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14879,7 +14764,7 @@ KAWASAKI KX 100 125 100/125
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">'dataframe_modelos_classificado.csv'</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14900,7 +14785,7 @@ KAWASAKI KX 100 125 100/125
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'dataframe_modelos_classificado.xlsx'</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14910,10 +14795,9 @@ KAWASAKI KX 100 125 100/125
 </div>
     </div>
   </div>
-
+</body>
 
  
 
 
-
-</body></html>
+</html>

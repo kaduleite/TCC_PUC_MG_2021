@@ -13180,7 +13180,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 10/01/2022 às 17:55
+<pre>Código executado em 12/01/2022 às 18:22
 </pre>
 </div>
 </div>
@@ -13210,9 +13210,9 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">arqsCSV</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">arquivo</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">arquivo</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;./bases/siscori/&quot;</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">arquivo</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">==</span><span class="s2">&quot;CSV&quot;</span> <span class="ow">and</span> <span class="n">arquivo</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;CAPI&#39;</span><span class="p">:</span>
-        <span class="n">arqsCSV</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arquivo</span><span class="p">)</span>
+        <span class="n">arqsCSV</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./bases/siscori/&quot;</span><span class="o">+</span><span class="n">arquivo</span><span class="p">)</span>
 <span class="n">arqsCSV</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">arqsCSV</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">arqsCSV</span><span class="p">)</span>
 </pre></div>
@@ -13231,7 +13231,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;CAPI872001.CSV&#39;, &#39;CAPI872002.CSV&#39;, &#39;CAPI872003.CSV&#39;, &#39;CAPI872004.CSV&#39;, &#39;CAPI872005.CSV&#39;, &#39;CAPI872006.CSV&#39;, &#39;CAPI872007.CSV&#39;, &#39;CAPI872008.CSV&#39;, &#39;CAPI872009.CSV&#39;, &#39;CAPI872010.CSV&#39;, &#39;CAPI872011.CSV&#39;, &#39;CAPI872012.CSV&#39;, &#39;CAPI872101.CSV&#39;, &#39;CAPI872102.CSV&#39;, &#39;CAPI872103.CSV&#39;, &#39;CAPI872104.CSV&#39;, &#39;CAPI872105.CSV&#39;, &#39;CAPI872106.CSV&#39;]
+<pre>[&#39;./bases/siscori/CAPI872001.CSV&#39;, &#39;./bases/siscori/CAPI872002.CSV&#39;, &#39;./bases/siscori/CAPI872003.CSV&#39;, &#39;./bases/siscori/CAPI872004.CSV&#39;, &#39;./bases/siscori/CAPI872005.CSV&#39;, &#39;./bases/siscori/CAPI872006.CSV&#39;, &#39;./bases/siscori/CAPI872007.CSV&#39;, &#39;./bases/siscori/CAPI872008.CSV&#39;, &#39;./bases/siscori/CAPI872009.CSV&#39;, &#39;./bases/siscori/CAPI872010.CSV&#39;, &#39;./bases/siscori/CAPI872011.CSV&#39;, &#39;./bases/siscori/CAPI872012.CSV&#39;, &#39;./bases/siscori/CAPI872101.CSV&#39;, &#39;./bases/siscori/CAPI872102.CSV&#39;, &#39;./bases/siscori/CAPI872103.CSV&#39;, &#39;./bases/siscori/CAPI872104.CSV&#39;, &#39;./bases/siscori/CAPI872105.CSV&#39;, &#39;./bases/siscori/CAPI872106.CSV&#39;]
 </pre>
 </div>
 </div>
@@ -13429,7 +13429,7 @@ div#notebook {
     <span class="n">indiceNCM</span> <span class="o">=</span> <span class="n">dftemp</span><span class="p">[</span><span class="s1">&#39;COD.NCM&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;87141000&#39;</span>
     <span class="n">dftemp</span> <span class="o">=</span> <span class="n">dftemp</span><span class="p">[</span><span class="n">indiceNCM</span><span class="p">]</span>
     <span class="c1"># Filtro 2: Descrição contendo palavras da lista</span>
-    <span class="n">listafiltro</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;kit&quot;</span><span class="p">,</span> <span class="s2">&quot;transm&quot;</span><span class="p">,</span> <span class="s2">&quot;corrente&quot;</span><span class="p">,</span> <span class="s2">&quot;coroa&quot;</span><span class="p">,</span> <span class="s2">&quot;pinhao|pinhão&quot;</span><span class="p">]</span> <span class="c1"># A barra vertical (|) faz o &quot;ou&quot;.</span>
+    <span class="n">listafiltro</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;transm&quot;</span><span class="p">,</span> <span class="s2">&quot;corrente&quot;</span><span class="p">,</span> <span class="s2">&quot;coroa&quot;</span><span class="p">,</span> <span class="s2">&quot;pinhao|pinhão&quot;</span><span class="p">]</span> <span class="c1"># A barra vertical (|) faz o &quot;ou&quot;.</span>
     <span class="k">for</span> <span class="n">termo</span> <span class="ow">in</span> <span class="n">listafiltro</span><span class="p">:</span>
         <span class="n">dftemp</span><span class="o">=</span><span class="n">dftemp</span><span class="p">[</span><span class="n">dftemp</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">termo</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
     <span class="c1"># Concatena com o DataFrame final</span>
@@ -13451,7 +13451,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Iniciando CAPI872001.CSV.
+<pre>Iniciando ./bases/siscori/CAPI872001.CSV.
 </pre>
 </div>
 </div>
@@ -13476,51 +13476,51 @@ div#notebook {
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 491150
-CAPI872001.CSV finalizado.
+./bases/siscori/CAPI872001.CSV finalizado.
 
-Iniciando CAPI872002.CSV.
+Iniciando ./bases/siscori/CAPI872002.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 867647
-CAPI872002.CSV finalizado.
+./bases/siscori/CAPI872002.CSV finalizado.
 
-Iniciando CAPI872003.CSV.
+Iniciando ./bases/siscori/CAPI872003.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 1303525
-CAPI872003.CSV finalizado.
+./bases/siscori/CAPI872003.CSV finalizado.
 
-Iniciando CAPI872004.CSV.
+Iniciando ./bases/siscori/CAPI872004.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 1633743
-CAPI872004.CSV finalizado.
+./bases/siscori/CAPI872004.CSV finalizado.
 
-Iniciando CAPI872005.CSV.
+Iniciando ./bases/siscori/CAPI872005.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 1881276
-CAPI872005.CSV finalizado.
+./bases/siscori/CAPI872005.CSV finalizado.
 
-Iniciando CAPI872006.CSV.
+Iniciando ./bases/siscori/CAPI872006.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 2111936
-CAPI872006.CSV finalizado.
+./bases/siscori/CAPI872006.CSV finalizado.
 
-Iniciando CAPI872007.CSV.
+Iniciando ./bases/siscori/CAPI872007.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 2417409
-CAPI872007.CSV finalizado.
+./bases/siscori/CAPI872007.CSV finalizado.
 
-Iniciando CAPI872008.CSV.
+Iniciando ./bases/siscori/CAPI872008.CSV.
 DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 2758394
-CAPI872008.CSV finalizado.
+./bases/siscori/CAPI872008.CSV finalizado.
 
-Iniciando CAPI872009.CSV.
+Iniciando ./bases/siscori/CAPI872009.CSV.
 </pre>
 </div>
 </div>
@@ -13549,9 +13549,9 @@ Skipping line 333251: &#39;@&#39; expected after &#39;&#39;&#39;
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 3092950
-CAPI872009.CSV finalizado.
+./bases/siscori/CAPI872009.CSV finalizado.
 
-Iniciando CAPI872010.CSV.
+Iniciando ./bases/siscori/CAPI872010.CSV.
 </pre>
 </div>
 </div>
@@ -13577,9 +13577,9 @@ Skipping line 366276: &#39;@&#39; expected after &#39;&#39;&#39;
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 3524548
-CAPI872010.CSV finalizado.
+./bases/siscori/CAPI872010.CSV finalizado.
 
-Iniciando CAPI872011.CSV.
+Iniciando ./bases/siscori/CAPI872011.CSV.
 </pre>
 </div>
 </div>
@@ -13608,9 +13608,9 @@ Skipping line 305333: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 3959784
-CAPI872011.CSV finalizado.
+./bases/siscori/CAPI872011.CSV finalizado.
 
-Iniciando CAPI872012.CSV.
+Iniciando ./bases/siscori/CAPI872012.CSV.
 </pre>
 </div>
 </div>
@@ -13637,9 +13637,9 @@ Skipping line 383935: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 4423973
-CAPI872012.CSV finalizado.
+./bases/siscori/CAPI872012.CSV finalizado.
 
-Iniciando CAPI872101.CSV.
+Iniciando ./bases/siscori/CAPI872101.CSV.
 </pre>
 </div>
 </div>
@@ -13668,9 +13668,9 @@ Skipping line 368381: &#39;@&#39; expected after &#39;&#39;&#39;
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 4887783
-CAPI872101.CSV finalizado.
+./bases/siscori/CAPI872101.CSV finalizado.
 
-Iniciando CAPI872102.CSV.
+Iniciando ./bases/siscori/CAPI872102.CSV.
 </pre>
 </div>
 </div>
@@ -13698,9 +13698,9 @@ Skipping line 253297: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 5295448
-CAPI872102.CSV finalizado.
+./bases/siscori/CAPI872102.CSV finalizado.
 
-Iniciando CAPI872103.CSV.
+Iniciando ./bases/siscori/CAPI872103.CSV.
 </pre>
 </div>
 </div>
@@ -13726,9 +13726,9 @@ Skipping line 519061: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 5845327
-CAPI872103.CSV finalizado.
+./bases/siscori/CAPI872103.CSV finalizado.
 
-Iniciando CAPI872104.CSV.
+Iniciando ./bases/siscori/CAPI872104.CSV.
 </pre>
 </div>
 </div>
@@ -13757,9 +13757,9 @@ Skipping line 435246: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 6481393
-CAPI872104.CSV finalizado.
+./bases/siscori/CAPI872104.CSV finalizado.
 
-Iniciando CAPI872105.CSV.
+Iniciando ./bases/siscori/CAPI872105.CSV.
 </pre>
 </div>
 </div>
@@ -13794,9 +13794,9 @@ Skipping line 386253: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 6963712
-CAPI872105.CSV finalizado.
+./bases/siscori/CAPI872105.CSV finalizado.
 
-Iniciando CAPI872106.CSV.
+Iniciando ./bases/siscori/CAPI872106.CSV.
 </pre>
 </div>
 </div>
@@ -13823,7 +13823,7 @@ Skipping line 10237: field larger than field limit (131072)
 <pre>DataFrame carregado...
 Aplicando filtros...
 Quantidade de registros válidos: 7693634
-CAPI872106.CSV finalizado.
+./bases/siscori/CAPI872106.CSV finalizado.
 
 </pre>
 </div>
@@ -13836,7 +13836,7 @@ CAPI872106.CSV finalizado.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Resetando-o-&#237;ndice-do-DataFrame-final">Resetando o &#237;ndice do DataFrame final<a class="anchor-link" href="#Resetando-o-&#237;ndice-do-DataFrame-final">&#182;</a></h3>
+<h3 id="Resetando-o-&#237;ndice-do-DataFrame-importado">Resetando o &#237;ndice do DataFrame importado<a class="anchor-link" href="#Resetando-o-&#237;ndice-do-DataFrame-importado">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13856,7 +13856,7 @@ CAPI872106.CSV finalizado.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Verificando-o-DataFrame-final">Verificando o DataFrame final<a class="anchor-link" href="#Verificando-o-DataFrame-final">&#182;</a></h3>
+<h3 id="Verificando-o-DataFrame-importado">Verificando o DataFrame importado<a class="anchor-link" href="#Verificando-o-DataFrame-importado">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13865,7 +13865,7 @@ CAPI872106.CSV finalizado.
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13926,9 +13926,9 @@ CAPI872106.CSV finalizado.
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0000001137910000100001</td>
-      <td>202001</td>
+      <th>9388</th>
+      <td>0000000451880000100005</td>
+      <td>202011</td>
       <td>87141000</td>
       <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
       <td>160</td>
@@ -13938,116 +13938,68 @@ CAPI872106.CSV finalizado.
       <td>10</td>
       <td>QUILOGRAMA LIQUIDO</td>
       <td>...</td>
-      <td>5000.0</td>
-      <td>0.0</td>
-      <td>3.728000</td>
-      <td>23400.0</td>
-      <td>87235.20000</td>
+      <td>2772.11</td>
+      <td>333.66</td>
+      <td>1.42000</td>
+      <td>300.0</td>
+      <td>426.00</td>
       <td>N/INFORMADO</td>
       <td>ITAJAI</td>
       <td>FOB</td>
       <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA                              ...</td>
+      <td>DI DESEMBARAÇADA</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0000001137910000100002</td>
-      <td>202001</td>
+      <th>17356</th>
+      <td>0000001935400000400023</td>
+      <td>202104</td>
       <td>87141000</td>
       <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
       <td>160</td>
       <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
+      <td>767</td>
+      <td>SUICA</td>
       <td>10</td>
       <td>QUILOGRAMA LIQUIDO</td>
       <td>...</td>
-      <td>5000.0</td>
-      <td>0.0</td>
-      <td>3.700000</td>
-      <td>22000.0</td>
-      <td>81400.00000</td>
-      <td>N/INFORMADO</td>
-      <td>ITAJAI</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA                              ...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0000001137910000100003</td>
-      <td>202001</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>5000.0</td>
-      <td>0.0</td>
-      <td>3.686000</td>
-      <td>2500.0</td>
-      <td>9215.00000</td>
-      <td>N/INFORMADO</td>
-      <td>ITAJAI</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA                              ...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0000000443430000100001</td>
-      <td>202001</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>10250.0</td>
-      <td>0.0</td>
-      <td>3.343258</td>
-      <td>1500.0</td>
-      <td>5014.88670</td>
+      <td>8427.66</td>
+      <td>263.89</td>
+      <td>5.87000</td>
+      <td>40.0</td>
+      <td>234.80</td>
       <td>N/INFORMADO</td>
       <td>PORTO DE VITORIA</td>
       <td>FOB</td>
       <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA                              ...</td>
+      <td>DI DESEMBARAÇADA</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>0000000443430000100002</td>
-      <td>202001</td>
+      <th>19149</th>
+      <td>0000001790740000100010</td>
+      <td>202106</td>
       <td>87141000</td>
       <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
       <td>160</td>
       <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
+      <td>351</td>
+      <td>HONG KONG</td>
       <td>10</td>
       <td>QUILOGRAMA LIQUIDO</td>
       <td>...</td>
-      <td>10250.0</td>
-      <td>0.0</td>
-      <td>3.826396</td>
-      <td>400.0</td>
-      <td>1530.55836</td>
+      <td>4485.00</td>
+      <td>232.35</td>
+      <td>4.62885</td>
+      <td>200.0</td>
+      <td>925.77</td>
       <td>N/INFORMADO</td>
-      <td>PORTO DE VITORIA</td>
+      <td>ITAJAI</td>
       <td>FOB</td>
       <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA                              ...</td>
+      <td>DI DESEMBARAÇADA</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 25 columns</p>
+<p>3 rows × 25 columns</p>
 </div>
 </div>
 
@@ -14062,7 +14014,7 @@ CAPI872106.CSV finalizado.
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14079,206 +14031,9 @@ CAPI872106.CSV finalizado.
 
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>NUMERO DE ORDEM</th>
-      <th>ANOMES</th>
-      <th>COD.NCM</th>
-      <th>DESCRICAO DO CODIGO NCM</th>
-      <th>PAIS.OR</th>
-      <th>PAIS DE ORIGEM</th>
-      <th>PAIS.AQ</th>
-      <th>PAIS DE AQUISICAO</th>
-      <th>UND.ESTAT.</th>
-      <th>UNIDADE DE MEDIDA</th>
-      <th>...</th>
-      <th>VL FRETE DOLAR</th>
-      <th>VL SEGURO DOLAR</th>
-      <th>VALOR UN.PROD.DOLAR</th>
-      <th>QTD COMERCIAL.</th>
-      <th>TOT.UN.PROD.DOLAR</th>
-      <th>UNIDADE DESEMBARQUE</th>
-      <th>UNIDADE DESEMBARACO</th>
-      <th>INCOTERM</th>
-      <th>NAT.INFORMACAO</th>
-      <th>SITUACAO DO DESPACHO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>19087</th>
-      <td>0000001834950000100008</td>
-      <td>202106</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>13689.44</td>
-      <td>128.81</td>
-      <td>3.747</td>
-      <td>600.0</td>
-      <td>2248.2</td>
-      <td>N/INFORMADO</td>
-      <td>ALF - FORTALEZA</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-    <tr>
-      <th>19088</th>
-      <td>0000001834950000100009</td>
-      <td>202106</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>13689.44</td>
-      <td>128.81</td>
-      <td>3.620</td>
-      <td>2500.0</td>
-      <td>9050.0</td>
-      <td>N/INFORMADO</td>
-      <td>ALF - FORTALEZA</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-    <tr>
-      <th>19089</th>
-      <td>0000001834950000100010</td>
-      <td>202106</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>13689.44</td>
-      <td>128.81</td>
-      <td>3.581</td>
-      <td>1000.0</td>
-      <td>3581.0</td>
-      <td>N/INFORMADO</td>
-      <td>ALF - FORTALEZA</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-    <tr>
-      <th>19090</th>
-      <td>0000001834950000100011</td>
-      <td>202106</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>13689.44</td>
-      <td>128.81</td>
-      <td>3.450</td>
-      <td>100.0</td>
-      <td>345.0</td>
-      <td>N/INFORMADO</td>
-      <td>ALF - FORTALEZA</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-    <tr>
-      <th>19091</th>
-      <td>0000001834950000100012</td>
-      <td>202106</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>13689.44</td>
-      <td>128.81</td>
-      <td>3.503</td>
-      <td>300.0</td>
-      <td>1050.9</td>
-      <td>N/INFORMADO</td>
-      <td>ALF - FORTALEZA</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 25 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(19092, 25)</pre>
+<pre>(19317, 25)</pre>
 </div>
 
 </div>
@@ -14296,7 +14051,7 @@ CAPI872106.CSV finalizado.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove espaços em excesso das colunas em colstr</span>
@@ -14322,7 +14077,7 @@ CAPI872106.CSV finalizado.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
@@ -14338,13 +14093,219 @@ CAPI872106.CSV finalizado.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&#39;80348 KIT DE TRANSMISSÃO, COMPOSTO DE CORRENTE, COROA E PINHÃO PARA MOTOCICLETA CBX 250 TWISTER, MARCA ALLEN.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Excluindo-colunas-desnecess&#225;rias">Excluindo colunas desnecess&#225;rias<a class="anchor-link" href="#Excluindo-colunas-desnecess&#225;rias">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">excluir</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NUMERO DE ORDEM&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;ANOMES&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;COD.NCM&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;DESCRICAO DO CODIGO NCM&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;PAIS.OR&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;PAIS.AQ&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;PAIS DE AQUISICAO&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;UND.ESTAT.&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;UNIDADE DE MEDIDA&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;UNIDADE COMERC.&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;QTDE ESTATISTICA&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;PESO LIQUIDO&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;VMLE DOLAR&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;VL FRETE DOLAR&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;VL SEGURO DOLAR&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;QTD COMERCIAL.&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;TOT.UN.PROD.DOLAR&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;UNIDADE DESEMBARQUE&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;UNIDADE DESEMBARACO&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;INCOTERM&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;NAT.INFORMACAO&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;SITUACAO DO DESPACHO&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">excluir</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[15]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PAIS DE ORIGEM</th>
+      <th>DESCRICAO DO PRODUTO</th>
+      <th>VALOR UN.PROD.DOLAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>007293# KIT TRANSMISSAO STANDARD TEMPERADO COM...</td>
+      <td>3.728</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>007295# KIT TRANSMISSAO STANDARD TEMPERADO COM...</td>
+      <td>3.700</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>007296# KIT TRANSMISSAO STANDARD TEMPERADO COM...</td>
+      <td>3.686</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[16]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PAIS DE ORIGEM</th>
+      <th>DESCRICAO DO PRODUTO</th>
+      <th>VALOR UN.PROD.DOLAR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19314</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>KIT DE TRANSMISSÃO AÇO TITAN 99 1045 COMPOSTO ...</td>
+      <td>3.581</td>
+    </tr>
+    <tr>
+      <th>19315</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>KIT DE TRANSMISSÃO AÇO YBR 125 00/02 1045, COM...</td>
+      <td>3.450</td>
+    </tr>
+    <tr>
+      <th>19316</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>KIT DE TRANSMISSÃO AÇO YBR 125 03/05, COMPOSTO...</td>
+      <td>3.503</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -14370,10 +14331,10 @@ CAPI872106.CSV finalizado.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;dataframe.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14391,10 +14352,10 @@ CAPI872106.CSV finalizado.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;dataframe.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14412,7 +14373,7 @@ CAPI872106.CSV finalizado.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Qtd de registros Dataset original: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tamanhoDataset</span><span class="p">))</span>
@@ -14434,7 +14395,7 @@ CAPI872106.CSV finalizado.
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Qtd de registros Dataset original: 7693634
-Qtd de registros Dataset final:    19092
+Qtd de registros Dataset final:    19317
 </pre>
 </div>
 </div>
