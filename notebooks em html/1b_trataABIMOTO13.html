@@ -13163,6 +13163,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data e hora da execução do script</span>
+<span class="n">initot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Código executado em {time.strftime(&quot;</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M&quot;, time.localtime(time.time()))}&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13180,7 +13181,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 12/01/2022 às 18:24
+<pre>Código executado em 16/01/2022 às 18:00
 </pre>
 </div>
 </div>
@@ -13890,6 +13891,41 @@ Quantidade de registros válidos: 129
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Qtd de registros Dataset original: 129
 Qtd de registros Dataset final:    16
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempotot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">initot</span>
+<span class="k">if</span> <span class="n">tempotot</span><span class="o">&gt;</span><span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: {tempotot/60:.2f} minutos.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: </span><span class="si">{tempotot:.2f}</span><span class="s1"> segundos.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tempo total de execução: 1.73 segundos.
 </pre>
 </div>
 </div>

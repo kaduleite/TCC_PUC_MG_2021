@@ -13139,7 +13139,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">time</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span><span class="o">,</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">pickle</span>
 </pre></div>
 
     </div>
@@ -13153,6 +13154,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data e hora da execução do script</span>
+<span class="n">initot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Código executado em {time.strftime(&quot;</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M&quot;, time.localtime(time.time()))}&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13170,7 +13172,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 12/01/2022 às 19:38
+<pre>Código executado em 20/01/2022 às 16:58
 </pre>
 </div>
 </div>
@@ -13192,7 +13194,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importa base de dados com os modelos já determinados para um dataframe</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual.xlsx&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual-tf.xlsx&#39;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
@@ -13239,15 +13241,15 @@ div#notebook {
   <tbody>
     <tr>
       <th>0</th>
-      <td>TITAN HONDA FAN CG TIT 150 AN</td>
+      <td>150 cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG FAN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG FAN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>TITAN HONDA CG CARGO TIT 125 AN</td>
+      <td>125 cargo cg honda titan</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
@@ -13255,23 +13257,23 @@ div#notebook {
     </tr>
     <tr>
       <th>2</th>
-      <td>125 CG HONDA FAN</td>
+      <td>125 cg fan honda</td>
       <td>HONDA CG FAN</td>
       <td>HONDA CG FAN</td>
-      <td>HONDA CG FAN</td>
+      <td>HONDA CG 125</td>
       <td>HONDA CG FAN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>HONDA BIZ C100</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
+      <td>biz c100 honda</td>
+      <td>HONDA BIZ C100 125 C125</td>
+      <td>HONDA BIZ C100 125 C125</td>
+      <td>HONDA BIZ C100 125 C125</td>
+      <td>HONDA BIZ C100 125 C125</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>MIRAGE 150</td>
+      <td>150 kasinski mirage</td>
       <td>KASINSKI MIRAGE 150 250</td>
       <td>KASINSKI MIRAGE 150 250</td>
       <td>KASINSKI MIRAGE 150 250</td>
@@ -13313,11 +13315,24 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18327, 9)</pre>
+<pre>(17484, 9)</pre>
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfaplicacoes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/Aplicacoes.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -13331,7 +13346,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
@@ -13351,10 +13366,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span>
 </pre></div>
 
     </div>
@@ -13367,7 +13382,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13390,6 +13405,7 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>DESCRICAO</th>
       <th>Modelo</th>
       <th>APLICACAO</th>
       <th>APLICACAOSVC</th>
@@ -13400,243 +13416,273 @@ div#notebook {
   <tbody>
     <tr>
       <th>11</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>289</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>311</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>632</th>
-      <td>HONDA CB MAX 300</td>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
-    </tr>
-    <tr>
-      <th>873</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>964</th>
-      <td>HONDA XR NX 200</td>
+      <th>282</th>
+      <td>max 125 hunter p21b</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
-    </tr>
-    <tr>
-      <th>1093</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>1126</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>1411</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>1750</th>
-      <td>125 HUNTER MAX</td>
+      <th>304</th>
+      <td>hunter max125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
+      <td>SUNDOWN MAX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>1770</th>
-      <td>YAMAHA TENERE XT 250</td>
+      <th>450</th>
+      <td>sundown hunter max 125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>1819</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>2334</th>
-      <td>YAMAHA 150 FAZER MAX</td>
+      <th>848</th>
+      <td>hunter max125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>SHINERAY MAX 150</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['SHINERAY MAX 150', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>2382</th>
-      <td>YAMAHA BLACK 150 FAZER</td>
-      <td>XXX</td>
-      <td>MVK BLACK STAR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['MVK BLACK STAR', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>2739</th>
-      <td>HONDA CB 300 110</td>
-      <td>XXX</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['HONDA CRF 110 150 110/150', 'HONDA CB 300R 3...</td>
-    </tr>
-    <tr>
-      <th>2898</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>2933</th>
-      <td>YAMAHA TENERE XT 250</td>
+      <th>1351</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>2950</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>3135</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>3155</th>
-      <td>YAMAHA TENERE XT 250</td>
+      <th>1683</th>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>3467</th>
-      <td>HONDA 250 CBX 110</td>
+      <th>1751</th>
+      <td>max 125 hunter p21b</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA CBX 1000</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>2043</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
       <td>HONDA TWISTER CBX 250</td>
-      <td>['HONDA CBX 1000', 'HONDA TWISTER CBX 250']</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
     </tr>
     <tr>
-      <th>3514</th>
-      <td>YAMAHA 150 FAZER WR</td>
+      <th>2740</th>
+      <td>hunter max125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>3599</th>
-      <td>YAMAHA 150 FAZER WR</td>
+      <th>2880</th>
+      <td>sundown max125 max 125 sed hunter</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>3799</th>
-      <td>HONDA XR NX 200</td>
+      <th>2958</th>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>3842</th>
-      <td>HONDA XR NX 200</td>
-      <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
+      <th>3724</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
     </tr>
     <tr>
-      <th>4325</th>
-      <td>HONDA XR NX 200</td>
+      <th>4370</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>4351</th>
-      <td>HONDA XR NX 200</td>
+      <th>4404</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>4371</th>
-      <td>HONDA XR NX 200</td>
+      <th>4494</th>
+      <td>max 125 hunter p21b</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>4392</th>
-      <td>HONDA XR NX 200</td>
+      <th>4510</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>4595</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>4638</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>5181</th>
+      <td>hunter max 125 15 x118</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>5274</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>5334</th>
+      <td>sundown hunter max 125</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>5739</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>5784</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>6157</th>
+      <td>xlv 700 transalp</td>
+      <td>700 honda transalp</td>
+      <td>HONDA XL 700V TRANSALP</td>
+      <td>KAWASAKI NINJA 700</td>
+      <td>HONDA NC 700X 700</td>
+      <td>['HONDA XL 700V TRANSALP', 'HONDA NC 700X 700']</td>
+    </tr>
+    <tr>
+      <th>6170</th>
+      <td>xlv 700 transalp</td>
+      <td>700 honda transalp</td>
+      <td>HONDA XL 700V TRANSALP</td>
+      <td>KAWASAKI NINJA 700</td>
+      <td>HONDA NC 700X 700</td>
+      <td>['HONDA XL 700V TRANSALP', 'HONDA NC 700X 700']</td>
+    </tr>
+    <tr>
+      <th>6511</th>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>6559</th>
+      <td>hunter max125</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>6634</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>6642</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
       <th>...</th>
@@ -13645,250 +13691,281 @@ div#notebook {
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>14437</th>
-      <td>100 MOTO</td>
-      <td>XXX</td>
-      <td>APRILIA MOTO</td>
-      <td>KAWASAKI KX 100 125 100/125</td>
-      <td>['APRILIA MOTO', 'KAWASAKI KX 100 125 100/125']</td>
-    </tr>
-    <tr>
-      <th>14490</th>
-      <td>YAMAHA 150 FAZER WR</td>
-      <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>14574</th>
-      <td>YAMAHA 150 FAZER MOTO</td>
-      <td>XXX</td>
-      <td>APRILIA MOTO</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['APRILIA MOTO', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>14595</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>14706</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>14729</th>
-      <td>HONDA XR NX 200</td>
-      <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
-    </tr>
-    <tr>
-      <th>15022</th>
-      <td>HONDA 125 XL WR</td>
-      <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>['HUSQVARNA WR', 'HONDA XL XLS 125 XL125 XL125S']</td>
-    </tr>
-    <tr>
-      <th>15024</th>
-      <td>HONDA WR CBX 200</td>
-      <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>HONDA STRADA CBX 200</td>
-      <td>['HUSQVARNA WR', 'HONDA STRADA CBX 200']</td>
-    </tr>
-    <tr>
-      <th>15114</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>15140</th>
-      <td>YAMAHA 150 FAZER WR</td>
-      <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>15225</th>
-      <td>HONDA BIZ MOTO 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>APRILIA MOTO</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>['HONDA BIZ 100 C100 125 C125', 'APRILIA MOTO'...</td>
-    </tr>
-    <tr>
-      <th>15619</th>
-      <td>HONDA CB 300 110</td>
-      <td>XXX</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['HONDA CRF 110 150 110/150', 'HONDA CB 300R 3...</td>
-    </tr>
-    <tr>
-      <th>15737</th>
-      <td>YAMAHA 150 FAZER WR</td>
-      <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>15809</th>
-      <td>HONDA CRF 230 110</td>
-      <td>XXX</td>
-      <td>HONDA CRF 230 230F 250 250F</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>['HONDA CRF 230 230F 250 250F', 'HONDA CRF 110...</td>
-    </tr>
-    <tr>
-      <th>15817</th>
-      <td>YAMAHA 150 FAZER WR</td>
-      <td>XXX</td>
-      <td>HUSQVARNA WR</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['HUSQVARNA WR', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>15935</th>
-      <td>YAMAHA 150 FAZER MAX</td>
-      <td>XXX</td>
-      <td>SHINERAY MAX 150</td>
-      <td>YAMAHA FAZER YS150 150</td>
-      <td>['SHINERAY MAX 150', 'YAMAHA FAZER YS150 150']</td>
-    </tr>
-    <tr>
-      <th>15946</th>
-      <td>HONDA CB MAX 300</td>
+      <th>7774</th>
+      <td>sundown max 125 sed hunter</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
-    </tr>
-    <tr>
-      <th>15978</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>16217</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>16266</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>16400</th>
-      <td>HONDA XR NX 200</td>
-      <td>XXX</td>
-      <td>HONDA XR</td>
-      <td>HONDA NX 150 200 250</td>
-      <td>['HONDA XR', 'HONDA NX 150 200 250']</td>
-    </tr>
-    <tr>
-      <th>17231</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>17372</th>
-      <td>HONDA 125 XL RACING</td>
-      <td>XXX</td>
-      <td>SHINERAY RACING 200</td>
-      <td>HONDA XL XLS 125 XL125 XL125S</td>
-      <td>['SHINERAY RACING 200', 'HONDA XL XLS 125 XL12...</td>
-    </tr>
-    <tr>
-      <th>17558</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>17595</th>
-      <td>HONDA BIZ MOTO 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>APRILIA MOTO</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>['HONDA BIZ 100 C100 125 C125', 'APRILIA MOTO'...</td>
-    </tr>
-    <tr>
-      <th>17673</th>
-      <td>HONDA CRF 230 110</td>
-      <td>XXX</td>
-      <td>HONDA CRF 230 230F 250 250F</td>
-      <td>HONDA CRF 110 150 110/150</td>
-      <td>['HONDA CRF 230 230F 250 250F', 'HONDA CRF 110...</td>
-    </tr>
-    <tr>
-      <th>17725</th>
-      <td>HONDA CB MAX 300</td>
+      <th>7829</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
     <tr>
-      <th>17808</th>
-      <td>HONDA CB MAX 300</td>
+      <th>7911</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
-    </tr>
-    <tr>
-      <th>17982</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>18018</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
       <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>7952</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>8073</th>
+      <td>xlv 700 transalp</td>
+      <td>700 honda transalp</td>
+      <td>HONDA XL 700V TRANSALP</td>
+      <td>KAWASAKI NINJA 700</td>
+      <td>HONDA NC 700X 700</td>
+      <td>['HONDA XL 700V TRANSALP', 'HONDA NC 700X 700']</td>
+    </tr>
+    <tr>
+      <th>8144</th>
+      <td>max 125 hunter p21b</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>8523</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>9537</th>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>9738</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>11188</th>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>11261</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>11284</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>11560</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>12178</th>
+      <td>p21b max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>12286</th>
+      <td>sundown max 125 sed hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>12665</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>12707</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>13051</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>13267</th>
+      <td>max 125 hunter p21b</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>13867</th>
+      <td>max 125 hunter mot</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>13978</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>15025</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>15223</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>15468</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>15519</th>
+      <td>hunter 125 max</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>15962</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>15977</th>
+      <td>cb twister 250 top</td>
+      <td>250 cb honda top twister</td>
+      <td>KAHENA TOP</td>
+      <td>HONDA TWISTER CBX 250</td>
+      <td>HONDA CB 250 250F</td>
+      <td>['HONDA TWISTER CBX 250', 'HONDA CB 250 250F']</td>
+    </tr>
+    <tr>
+      <th>16472</th>
+      <td>hunter max125</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>16795</th>
+      <td>hunter max 125 15 x118</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>17180</th>
+      <td>max 125 hunter</td>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
   </tbody>
 </table>
-<p>149 rows × 5 columns</p>
+<p>67 rows × 6 columns</p>
 </div>
 </div>
 
@@ -13900,10 +13977,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13916,15 +13993,46 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(149, 9)</pre>
+<pre>&#39;80373 KIT DE TRANSMISSÃO, COMPOSTO DE CORRENTE, COROA E PINHÃO PARA MOTOCICLETA SHINERAY PHOENIX 50CC, MARCA ALLEN.&#39;</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Registros a classificar: </span><span class="si">{df[filtro].shape[0]}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Registros a classificar: 67
+</pre>
+</div>
 </div>
 
 </div>
@@ -13940,7 +14048,7 @@ div#notebook {
 </div>Primeiramente, observando-se os registros verifica-se que são modelos repetidos, então faremos um dicionário com o par de escolha (modelo: aplicação).
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ordena</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
@@ -13964,13 +14072,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lista</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Modelo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">,</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]]</span>
 <span class="n">lista</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">ordena</span><span class="p">)</span>
 <span class="n">lista</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">lista</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">limpaColchetes</span><span class="p">)</span>
-<span class="n">lista</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Número de registros a classificar: </span><span class="si">{df[filtro].shape[0]}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Número de casos a analisar: </span><span class="si">{lista.shape[0]}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13983,15 +14092,14 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(25, 2)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Número de registros a classificar: 67
+Número de casos a analisar: 3
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -14008,7 +14116,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lista</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -14024,7 +14132,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -14053,19 +14161,19 @@ div#notebook {
   </thead>
   <tbody>
     <tr>
-      <th>7</th>
-      <td>110 300 CB HONDA</td>
-      <td>[HONDA CRF 110 150 110/150,  HONDA CB 300R 300...</td>
+      <th>2</th>
+      <td>700 honda transalp</td>
+      <td>[HONDA XL 700V TRANSALP,  HONDA NC 700X 700]</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>125 HONDA WR XL</td>
-      <td>[HUSQVARNA WR,  HONDA XL XLS 125 XL125 XL125S]</td>
+      <th>0</th>
+      <td>125 hunter max sundown</td>
+      <td>[SUNDOWN MAX,  SUNDOWN HUNTER]</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>300 CB HONDA MAX</td>
-      <td>[SUNDOWN MAX,  HONDA CB 300R 300 CB300]</td>
+      <th>1</th>
+      <td>250 cb honda top twister</td>
+      <td>[HONDA TWISTER CBX 250,  HONDA CB 250 250F]</td>
     </tr>
   </tbody>
 </table>
@@ -14080,7 +14188,79 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">lista</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Modelo</th>
+      <th>APLICACAOFIM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>125 hunter max sundown</td>
+      <td>[SUNDOWN MAX,  SUNDOWN HUNTER]</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>250 cb honda top twister</td>
+      <td>[HONDA TWISTER CBX 250,  HONDA CB 250 250F]</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>700 honda transalp</td>
+      <td>[HONDA XL 700V TRANSALP,  HONDA NC 700X 700]</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># com essa lista bastará deixar a opção correta.</span>
@@ -14096,7 +14276,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">relacoes</span>
@@ -14112,44 +14292,15 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;100 MOTO&#39;: [&#39;APRILIA MOTO&#39;, &#39; KAWASAKI KX 100 125 100/125&#39;],
- &#39;125 HUNTER MAX&#39;: [&#39;SUNDOWN HUNTER&#39;, &#39; HONDA CT 125 HUNTER&#39;],
- &#39;125 HONDA RACING XL&#39;: [&#39;SHINERAY RACING 200&#39;,
-  &#39; HONDA XL XLS 125 XL125 XL125S&#39;],
- &#39;125 HONDA WR XL&#39;: [&#39;HUSQVARNA WR&#39;, &#39; HONDA XL XLS 125 XL125 XL125S&#39;],
- &#39;110 250 CBX HONDA&#39;: [&#39;HONDA CBX 1000&#39;, &#39; HONDA TWISTER CBX 250&#39;],
- &#39;110 BIZ HONDA MOTO&#39;: [&#39;HONDA BIZ 100 C100 125 C125&#39;,
-  &#39; APRILIA MOTO&#39;,
-  &#39; HONDA CRF 110 150 110/150&#39;],
- &#39;110 250 CB HONDA&#39;: [&#39;HONDA CRF 110 150 110/150&#39;, &#39; HONDA CB 250 250F&#39;],
- &#39;110 300 CB HONDA&#39;: [&#39;HONDA CRF 110 150 110/150&#39;, &#39; HONDA CB 300R 300 CB300&#39;],
- &#39;500 CB GOLD HONDA&#39;: [&#39;MVK FENIX GOLD&#39;, &#39; HONDA CB 500&#39;],
- &#39;300 CB HONDA MAX&#39;: [&#39;SUNDOWN MAX&#39;, &#39; HONDA CB 300R 300 CB300&#39;],
- &#39;250F CB CITY ERO HONDA TWISTER&#39;: [&#39;HONDA TWISTER CBX 250&#39;,
-  &#39; KASINSKI ERO&#39;,
-  &#39; HONDA CB 250 250F&#39;],
- &#39;110 230 CRF HONDA&#39;: [&#39;HONDA CRF 230 230F 250 250F&#39;,
-  &#39; HONDA CRF 110 150 110/150&#39;],
- &#39;200 CBX HONDA WR&#39;: [&#39;HUSQVARNA WR&#39;, &#39; HONDA STRADA CBX 200&#39;],
- &#39;200 HONDA NX XR&#39;: [&#39;HONDA XR&#39;, &#39; HONDA NX 150 200 250&#39;],
- &#39;110 50 SHINERAY&#39;: [&#39;AMAZONAS AME 110 AME-110&#39;, &#39; SHINERAY NEW 50&#39;],
- &#39;50 FOX JET SHINERAY SMART&#39;: [&#39;MVK FOX&#39;, &#39; SHINERAY JET 50&#39;],
- &#39;150 FAZER GT YAMAHA&#39;: [&#39;SUZUKI GT&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
- &#39;150 FAZER MAX YAMAHA&#39;: [&#39;SHINERAY MAX 150&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
- &#39;150 FAZER MOTO YAMAHA&#39;: [&#39;APRILIA MOTO&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
- &#39;150 FAZER RACING YAMAHA&#39;: [&#39;APRILIA SR RACING&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
- &#39;150 FAZER WR YAMAHA&#39;: [&#39;HUSQVARNA WR&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
- &#39;150 MAX XTZ YAMAHA&#39;: [&#39;YAMAHA XTZ 125&#39;, &#39; YAMAHA XTZ CROSSER 150&#39;],
- &#39;150 BLACK FAZER YAMAHA&#39;: [&#39;MVK BLACK STAR&#39;, &#39; YAMAHA FAZER YS150 150&#39;],
- &#39;250 FAZER GT YAMAHA&#39;: [&#39;SUZUKI GT&#39;, &#39; YAMAHA FAZER YS250 250&#39;],
- &#39;250 TENERE XT YAMAHA&#39;: [&#39;YAMAHA XTZ TENERE 250&#39;,
-  &#39; YAMAHA XT TENERE 660Z 660&#39;]}</pre>
+<pre>{&#39;125 hunter max sundown&#39;: [&#39;SUNDOWN MAX&#39;, &#39; SUNDOWN HUNTER&#39;],
+ &#39;250 cb honda top twister&#39;: [&#39;HONDA TWISTER CBX 250&#39;, &#39; HONDA CB 250 250F&#39;],
+ &#39;700 honda transalp&#39;: [&#39;HONDA XL 700V TRANSALP&#39;, &#39; HONDA NC 700X 700&#39;]}</pre>
 </div>
 
 </div>
@@ -14160,37 +14311,52 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Número de relações a identificar manualmente: {len(relacoes)}&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Número de relações a identificar manualmente: 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Identifciadas as relações construiu-se o dicionário abaixo para classificar de acordo com sua definição de chave-valor.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Escolhas das relações realizada manualmente (somente 26 - deixamos uma de fora de propoósito.)</span>
-<span class="n">relacoes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;110 50 SHINERAY&#39;</span><span class="p">:</span> <span class="s1">&#39;SHINERAY NEW 50&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;125 HUNTER MAX&#39;</span><span class="p">:</span> <span class="s1">&#39;SUNDOWN HUNTER&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;110 250 CBX HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA TWISTER CBX 250&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;110 230 CRF HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CRF 230 230F 250 250F&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;125 HONDA RACING XL&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA XL XLS 125 XL125 XL125S&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;125 HONDA WR XL&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA XL XLS 125 XL125 XL125S&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;500 CB GOLD HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 500&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;110 BIZ EVO HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA BIZ 100 C100 125 C125&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;110 250 CB HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 250 250F&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;110 300 CB HONDA&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 300R 300 CB300&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;300 CB HONDA MAX&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CB 300R 300 CB300&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;600R CBR GOLD HONDA R60&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA CBR 250&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;200 HONDA NX XR&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA NX 150 200 250&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;250F CB CITY ERO HONDA TWISTER&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA TWISTER CBX 250&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;200 CBX HONDA WR&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA STRADA CBX 200&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;50 FOX JET SHINERAY SMART&#39;</span><span class="p">:</span> <span class="s1">&#39;SHINERAY JET 50&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 BLACK FAZER YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 FAZER GT YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;250 FAZER GT YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS250 250&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 FAZER MAX YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 FAZER MOTO YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 FAZER RACING YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;250 TENERE XT YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA XTZ TENERE 250&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 FAZER WR YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA FAZER YS150 150&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;150 MAX XTZ YAMAHA&#39;</span><span class="p">:</span> <span class="s1">&#39;YAMAHA XTZ 125&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;110 BIZ HONDA MOTO&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA BIZ 100 C100 125 C125&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;160 BROS HONDA WR&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA NXR 150 BROS BROZ&#39;</span><span class="p">}</span>
+<span class="n">relacoes</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;125 hunter max sundown&#39;</span><span class="p">:</span> <span class="s1">&#39; SUNDOWN HUNTER&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;250 cb honda top twister&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA TWISTER CBX 250&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;700 honda transalp&#39;</span><span class="p">:</span> <span class="s1">&#39;HONDA XL 700V TRANSALP&#39;</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -14200,7 +14366,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span>
@@ -14231,7 +14397,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
@@ -14251,10 +14417,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Registros a classificar: </span><span class="si">{df[filtro].shape[0]}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14267,15 +14433,13 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(1, 9)</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Registros a classificar: 0
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -14293,18 +14457,20 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># As escolhas serão em um dicionário para poder retomar</span>
 <span class="c1"># {index: escolha} ==&gt; exemplo: {11: 1, 16: 1}</span>
 <span class="n">escolhas</span><span class="o">=</span><span class="p">{}</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
-<span class="n">fileName</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;escolhas.npy&quot;</span>
+<span class="n">fileName</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;./pickle/escolhas.pkl&quot;</span>
 <span class="n">fileObj</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+<span class="c1"># se o arquivo existir</span>
 <span class="k">if</span> <span class="n">fileObj</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-    <span class="n">escolhas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;escolhas.npy&#39;</span><span class="p">)</span>
-    <span class="n">escolhas</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="mi">1</span><span class="p">))[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">escolhas</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">escolhas</span><span class="o">=</span><span class="p">{}</span>
 </pre></div>
@@ -14316,7 +14482,7 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -14332,7 +14498,7 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -14349,10 +14515,10 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># colindex = df[filtro].columns.get_loc(&quot;APLICACAOFIM&quot;)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">ultimo_i</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">escolhas</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="o">&gt;</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
@@ -14378,26 +14544,31 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
         <span class="k">if</span> <span class="n">pedeEscolha</span> <span class="ow">or</span> <span class="n">ultimo_i</span><span class="o">&lt;</span><span class="n">i</span><span class="p">:</span>
             <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
                 <span class="k">try</span><span class="p">:</span>
-                    <span class="n">a</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Escolha uma das opções acima ou X para cancelar: &#39;</span><span class="p">)</span>
+                    <span class="n">a</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Escolha uma das opções acima, O para outra ou X para cancelar: &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
                     <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;X&#39;</span><span class="p">:</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
                         <span class="k">break</span>
+                    <span class="k">elif</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;O&#39;</span> <span class="ow">or</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;o&#39;</span><span class="p">:</span>
+                        <span class="n">outra</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Digite o nome da aplicação:&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+                        <span class="c1"># verificar se está em aplicações</span>
+                        <span class="k">if</span> <span class="n">outra</span> <span class="ow">in</span> <span class="n">dfaplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>
+                            <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">outra</span> <span class="c1"># define a aplicação corrente</span>
+                            <span class="k">break</span> <span class="c1"># encerra o while</span>
                     <span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
                     <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
                         <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span>
                 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Opção inválida.</span><span class="se">\n</span><span class="s2">Digite o número de uma das opções apresentadas:&quot;</span><span class="p">)</span>
-                    <span class="c1">#print(&#39;Modelo: &#39;, row[&#39;Modelo&#39;])</span>
-                    <span class="c1">#for n, aplicacao in enumerate(aplictemp):</span>
-                        <span class="c1">#print(&#39; &#39;,str(n+1)+&#39;)&#39;,aplictemp[n])</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">break</span>
-            <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;X&#39;</span><span class="p">:</span>
-                <span class="k">break</span>
+                    <span class="k">break</span> <span class="c1"># encerra o while</span>
+            <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="k">break</span> <span class="c1"># se a entrada for X encerra o for</span>
+            <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="k">continue</span> <span class="c1"># se a entrada for O segue para o próximo</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">aplictemp</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">escolhas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">a</span> <span class="c1"># acrescenta ou atualiza a escolha no dicionário</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;escolhas.npy&#39;</span><span class="p">,</span> <span class="n">escolhas</span><span class="p">)</span> <span class="c1"># salva o dicionário em um arquivo</span>
+    <span class="c1">#np.save(&#39;escolhas.npy&#39;, escolhas) # salva o dicionário em um arquivo pickle</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./pickle/escolhas.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">escolhas</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">close</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">escolhas</span><span class="p">)</span>
 </pre></div>
 
@@ -14415,17 +14586,7 @@ A seguir, para os registros que não estiverem no diconário, cada linha apresen
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>14437
-********************
-Digite o número de uma das opções e tecle Enter:
-Modelo:  100 MOTO
-  1) APRILIA MOTO
-  2) KAWASAKI KX 100 125 100/125
-Escolha uma das opções acima ou X para cancelar: 2
-KAWASAKI KX 100 125 100/125 
-
-
-{14437: 2}
+<pre>{}
 </pre>
 </div>
 </div>
@@ -14444,7 +14605,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
@@ -14464,7 +14625,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span>
@@ -14480,7 +14641,7 @@ KAWASAKI KX 100 125 100/125
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -14528,10 +14689,10 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Registros a classificar: </span><span class="si">{df[filtro].shape[0]}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14544,13 +14705,67 @@ KAWASAKI KX 100 125 100/125
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Registros a classificar: 0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Comparando-as-classifica&#231;&#245;es">Comparando as classifica&#231;&#245;es<a class="anchor-link" href="#Comparando-as-classifica&#231;&#245;es">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Definição dos filtros</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span> <span class="c1"># Modelo manual e SVC iguais</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span> <span class="c1"># Modelo manual e MNB iguais</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre o modelo SVC e o modelo final</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(0, 9)</pre>
+<pre>(898, 9)</pre>
 </div>
 
 </div>
@@ -14561,7 +14776,48 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre o modelo MNB e o modelo final</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(2954, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Eliminando-as-colunas-de-classifica&#231;&#227;o">Eliminando as colunas de classifica&#231;&#227;o<a class="anchor-link" href="#Eliminando-as-colunas-de-classifica&#231;&#227;o">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">APLICACAO</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">APLICACAOFIM</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
@@ -14574,7 +14830,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -14589,7 +14845,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:,</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -14605,7 +14861,7 @@ KAWASAKI KX 100 125 100/125
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[25]:</div>
+    <div class="prompt output_prompt">Out[32]:</div>
 
 
 
@@ -14635,34 +14891,34 @@ KAWASAKI KX 100 125 100/125
   </thead>
   <tbody>
     <tr>
-      <th>5922</th>
-      <td>biz 125 nr</td>
-      <td>HONDA 125 BIZ</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
+      <th>16685</th>
+      <td>titan 160 fan</td>
+      <td>160 fan honda titan</td>
+      <td>HONDA CG FAN</td>
     </tr>
     <tr>
-      <th>9065</th>
-      <td>titan160 19 15 allen</td>
-      <td>TITAN 160 TIT</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <th>12959</th>
+      <td>cg 160 titan fan start cargo</td>
+      <td>160 cargo cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
     </tr>
     <tr>
-      <th>7400</th>
-      <td>darom xr 250 tornado</td>
-      <td>HONDA TORNADO 250 XR</td>
-      <td>HONDA TORNADO XR 250</td>
+      <th>13313</th>
+      <td>cg 160 titan fan start cargo</td>
+      <td>160 cargo cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
     </tr>
     <tr>
-      <th>17906</th>
-      <td>biz 110 14</td>
-      <td>HONDA BIZ 110</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
+      <th>4430</th>
+      <td>broz 160</td>
+      <td>160 broz honda</td>
+      <td>HONDA NXR 150 160 BROZ</td>
     </tr>
     <tr>
-      <th>15244</th>
-      <td>nxr 160 bros xre 428</td>
-      <td>HONDA BROS 160 XRE NXR</td>
-      <td>HONDA NXR 150 BROS BROZ</td>
+      <th>7245</th>
+      <td>fazer ys 250</td>
+      <td>250 fazer yamaha</td>
+      <td>YAMAHA FAZER YS250 250</td>
     </tr>
   </tbody>
 </table>
@@ -14709,7 +14965,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">retentorAux</span><span class="p">(</span><span class="n">descricao</span><span class="p">):</span>
@@ -14732,7 +14988,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cria a coluna RETENTOR com a indicação True|False</span>
@@ -14761,7 +15017,7 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -14782,13 +15038,48 @@ KAWASAKI KX 100 125 100/125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempotot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">initot</span>
+<span class="k">if</span> <span class="n">tempotot</span><span class="o">&gt;</span><span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: {tempotot/60:.2f} minutos.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: </span><span class="si">{tempotot:.2f}</span><span class="s1"> segundos.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tempo total de execução: 5.47 segundos.
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 

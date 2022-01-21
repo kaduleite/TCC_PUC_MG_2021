@@ -13158,6 +13158,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data e hora da execução do script</span>
+<span class="n">initot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Código executado em {time.strftime(&quot;</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M&quot;, time.localtime(time.time()))}&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13175,7 +13176,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 12/01/2022 às 19:32
+<pre>Código executado em 20/01/2022 às 16:54
 </pre>
 </div>
 </div>
@@ -13314,11 +13315,11 @@ div#notebook {
   </thead>
   <tbody>
     <tr>
-      <th>859</th>
+      <th>852</th>
       <td>ZONGSHEN ZS 125</td>
     </tr>
     <tr>
-      <th>860</th>
+      <th>853</th>
       <td>ZONGSHEN ZS 200</td>
     </tr>
   </tbody>
@@ -13356,7 +13357,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(861, 1)</pre>
+<pre>(854, 1)</pre>
 </div>
 
 </div>
@@ -13386,46 +13387,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criação da função CountVectorizer</span>
 <span class="n">cvta</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">strip_accents</span><span class="o">=</span><span class="s1">&#39;ascii&#39;</span><span class="p">,</span> <span class="n">lowercase</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criação da função TfidfTransformer</span>
-<span class="n">tfia</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span><span class="n">use_idf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_tfia</span> <span class="o">=</span> <span class="n">tfia</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_cvta</span><span class="p">)</span>
+<span class="n">X_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -13457,10 +13419,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="o">=</span><span class="n">X_tfia</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="o">=</span><span class="n">X_cvta</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 <span class="n">y_train</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">])</span>
 <span class="n">y_train1</span><span class="o">=</span><span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 </pre></div>
@@ -13479,13 +13441,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criando modelo</span>
 <span class="n">clfsvc</span> <span class="o">=</span> <span class="n">LinearSVC</span><span class="p">()</span>
 <span class="c1"># Treinamento do modelo</span>
-<span class="n">clfsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_tfia</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">clfsvc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13498,7 +13460,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13533,13 +13495,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">classificaAplicacaoSVC</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
     <span class="n">novo_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
-    <span class="n">novo_tfia</span> <span class="o">=</span> <span class="n">tfia</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">novo_cvta</span><span class="p">)</span>
-    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">clfsvc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_tfia</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">clfsvc</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_cvta</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">aplicacao</span>
 </pre></div>
 
@@ -13558,7 +13519,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lista de exemplos de novos produtos</span>
@@ -13571,7 +13532,7 @@ div#notebook {
            <span class="s1">&#39;250F TWISTER HONDA&#39;</span><span class="p">]</span>
 <span class="c1"># Loop for para fazer a predição do departamento de novos produtos</span>
 <span class="k">for</span> <span class="n">modelo</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39; Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoSVC</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39; Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoSVC</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13590,8 +13551,8 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Modelo: 150 CG HONDA TITAN  Aplicação: HONDA CG TIT TITAN 125 150 160
 Modelo: 125 CARGO CG HONDA TITAN  Aplicação: HONDA CG TIT TITAN 125 150 160
-Modelo: BIZ C100 HONDA  Aplicação: HONDA BIZ 100 C100 125 C125
-Modelo: 100 HONDA BIZ  Aplicação: HONDA BIZ 100 C100 125 C125
+Modelo: BIZ C100 HONDA  Aplicação: HONDA BIZ C100 125 C125
+Modelo: 100 HONDA BIZ  Aplicação: HONDA BIZ C100 125 C125
 Modelo: 100 BIZ BRAVO HONDA  Aplicação: SHINERAY BRAVO 200
 Modelo: 125 YBR GT YAMAHA  Aplicação: SUZUKI GT
 Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
@@ -13612,7 +13573,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criando modelo</span>
@@ -13631,7 +13592,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13663,13 +13624,12 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">classificaAplicacaoMNB</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
     <span class="n">novo_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
-    <span class="n">novo_tfia</span> <span class="o">=</span> <span class="n">tfia</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">novo_cvta</span><span class="p">)</span>
-    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">][</span><span class="n">clfmnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_tfia</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">df_aplicacoes</span><span class="p">[</span><span class="s1">&#39;APLICACOES&#39;</span><span class="p">][</span><span class="n">clfmnb</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_cvta</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
     <span class="k">return</span> <span class="n">aplicacao</span>
 </pre></div>
 
@@ -13688,7 +13648,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lista de exemplos de novos produtos</span>
@@ -13701,7 +13661,7 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
            <span class="s1">&#39;250F TWISTER HONDA&#39;</span><span class="p">]</span>
 <span class="c1"># Loop for para fazer a predição do departamento de novos produtos</span>
 <span class="k">for</span> <span class="n">modelo</span> <span class="ow">in</span> <span class="n">modelos</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39;Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoMNB</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Modelo:&#39;</span><span class="p">,</span> <span class="n">modelo</span><span class="p">,</span> <span class="s1">&#39;Aplicação:&#39;</span><span class="p">,</span> <span class="n">classificaAplicacaoMNB</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13718,13 +13678,13 @@ Modelo: 250F TWISTER HONDA  Aplicação: HONDA TWISTER CBX 250
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Modelo: 150 CG FAN HONDA TITAN Aplicação: HONDA CG FAN
+<pre>Modelo: 150 CG FAN HONDA TITAN Aplicação: HONDA CG TIT TITAN 125 150 160
 Modelo: 125 CARGO CG HONDA TITAN Aplicação: HONDA CG TIT TITAN 125 150 160
-Modelo: BIZ C100 HONDA Aplicação: HONDA BIZ 100 C100 125 C125
-Modelo: 100 HONDA BIZ Aplicação: HONDA BIZ 100 C100 125 C125
-Modelo: 100 BIZ BRAVO HONDA Aplicação: HONDA BIZ 100 C100 125 C125
+Modelo: BIZ C100 HONDA Aplicação: HONDA BIZ C100 125 C125
+Modelo: 100 HONDA BIZ Aplicação: HONDA BIZ C100 125 C125
+Modelo: 100 BIZ BRAVO HONDA Aplicação: HONDA BIZ C100 125 C125
 Modelo: 125 YBR GT YAMAHA Aplicação: YAMAHA FACTOR YBR 125 YBR125
-Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
+Modelo: 250F TWISTER HONDA Aplicação: HONDA CB 250 250F
 </pre>
 </div>
 </div>
@@ -13742,7 +13702,7 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Criando modelo</span>
@@ -13761,7 +13721,7 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[18]:</div>
+    <div class="prompt output_prompt">Out[15]:</div>
 
 
 
@@ -13796,13 +13756,12 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">classificaAplicacaoLGR</span><span class="p">(</span><span class="n">modelo</span><span class="p">):</span>
-    <span class="n">novo_cvt</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
-    <span class="n">novo_tfi</span> <span class="o">=</span> <span class="n">tfia</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">novo_cvt</span><span class="p">)</span>
-    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">clflgr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_tfi</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">novo_cvta</span> <span class="o">=</span> <span class="n">cvta</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">modelo</span><span class="p">))</span>
+    <span class="n">aplicacao</span> <span class="o">=</span> <span class="n">clflgr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">novo_cvta</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">aplicacao</span>
 </pre></div>
 
@@ -13821,7 +13780,7 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lista de exemplos de novos produtos</span>
@@ -13851,13 +13810,13 @@ Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Modelo: 150 CG FAN HONDA TITAN Aplicação: HONDA CG FAN
-Modelo: 125 CARGO CG HONDA TITAN Aplicação: LIFAN LF125
-Modelo: BIZ C100 HONDA Aplicação: HONDA BIZ 100 C100 125 C125
-Modelo: 100 HONDA BIZ Aplicação: LIFAN LF125
-Modelo: 100 BIZ BRAVO HONDA Aplicação: LIFAN LF125
-Modelo: 125 YBR GT YAMAHA Aplicação: LIFAN LF125
-Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
+<pre>Modelo: 150 CG FAN HONDA TITAN Aplicação: HONDA CG TIT TITAN 125 150 160
+Modelo: 125 CARGO CG HONDA TITAN Aplicação: HONDA CG TIT TITAN 125 150 160
+Modelo: BIZ C100 HONDA Aplicação: HONDA BIZ C100 125 C125
+Modelo: 100 HONDA BIZ Aplicação: HONDA BIZ C100 125 C125
+Modelo: 100 BIZ BRAVO HONDA Aplicação: HONDA BIZ C100 125 C125
+Modelo: 125 YBR GT YAMAHA Aplicação: YAMAHA FACTOR YBR 125 YBR125
+Modelo: 250F TWISTER HONDA Aplicação: HONDA TWISTER CBX 250
 </pre>
 </div>
 </div>
@@ -13882,7 +13841,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importa base de dados com os modelos já determinados para um dataframe</span>
@@ -13900,7 +13859,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13930,27 +13889,27 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
   <tbody>
     <tr>
       <th>0</th>
-      <td>TITAN HONDA FAN CG TIT 150 AN</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>150 cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>TITAN HONDA CG CARGO TIT 125 AN</td>
+      <td>125 cargo cg honda titan</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>125 CG HONDA FAN</td>
+      <td>125 cg fan honda</td>
       <td>HONDA CG FAN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>HONDA BIZ C100</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
+      <td>biz c100 honda</td>
+      <td>HONDA BIZ C100 125 C125</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>MIRAGE 150</td>
+      <td>150 kasinski mirage</td>
       <td>KASINSKI MIRAGE 150 250</td>
     </tr>
   </tbody>
@@ -13966,7 +13925,7 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Verifica o tamnanho do dataframe</span>
@@ -13983,13 +13942,13 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[22]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18327, 6)</pre>
+<pre>(17484, 6)</pre>
 </div>
 
 </div>
@@ -14007,13 +13966,15 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Modelo Linear SVC</span>
 <span class="n">ini</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de início:&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">t1</span><span class="o">=</span><span class="mi">5</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span> <span class="c1"># tempo para cada mil registros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Hora de início: </span><span class="si">{now}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Tempo estimado: {int(t1*df.shape[0]/1000)} segundos&quot;</span><span class="p">)</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoSVC</span><span class="p">)</span>
 
@@ -14037,9 +13998,10 @@ Modelo: 250F TWISTER HONDA Aplicação: LIFAN LF125
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hora de início:19:32:57
-Hora de término:19:33:06
-Tempo decorrido: 8.8 segundos.
+<pre>Hora de início: 16:54:08
+Tempo estimado: 5 segundos
+Hora de término:16:54:13
+Tempo decorrido: 4.7 segundos.
 </pre>
 </div>
 </div>
@@ -14050,17 +14012,19 @@ Tempo decorrido: 8.8 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Modelo Multinomial NB</span>
 <span class="n">ini</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de início:&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">t1</span><span class="o">=</span><span class="mi">53</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span> <span class="c1"># tempo para cada mil registros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Hora de início: </span><span class="si">{now}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Tempo estimado: {int(t1*df.shape[0]/1000)} segundos&quot;</span><span class="p">)</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoMNB</span><span class="p">)</span>
 
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 <span class="n">fim</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de término:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tempo decorrido: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
@@ -14080,9 +14044,10 @@ Tempo decorrido: 8.8 segundos.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hora de início:19:33
-Hora de término:19:34
-Tempo decorrido: 60.4 segundos.
+<pre>Hora de início: 16:54:13
+Tempo estimado: 53 segundos
+Hora de término:16:55:06
+Tempo decorrido: 52.9 segundos.
 </pre>
 </div>
 </div>
@@ -14093,17 +14058,19 @@ Tempo decorrido: 60.4 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Modelo Regressão Logística</span>
 <span class="n">ini</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de início:&quot;</span> <span class="o">+</span> <span class="n">now</span><span class="p">)</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">t1</span><span class="o">=</span><span class="mi">68</span><span class="o">/</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span> <span class="c1"># tempo para cada mil registros</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Hora de início: </span><span class="si">{now}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Tempo estimado: {int(t1*df.shape[0]/1000)} segundos&quot;</span><span class="p">)</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">classificaAplicacaoLGR</span><span class="p">)</span>
 
-<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%H:%M:%S&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 <span class="n">fim</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hora de término:&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">now</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tempo decorrido: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">((</span><span class="n">fim</span><span class="o">-</span><span class="n">ini</span><span class="p">),</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; segundos.&quot;</span><span class="p">)</span>
@@ -14123,9 +14090,10 @@ Tempo decorrido: 60.4 segundos.
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Hora de início:19:34
-Hora de término:19:35
-Tempo decorrido: 68.5 segundos.
+<pre>Hora de início: 16:55:06
+Tempo estimado: 68 segundos
+Hora de término:16:56:06
+Tempo decorrido: 60.2 segundos.
 </pre>
 </div>
 </div>
@@ -14136,7 +14104,7 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -14152,13 +14120,13 @@ Tempo decorrido: 68.5 segundos.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[26]:</div>
+    <div class="prompt output_prompt">Out[23]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18327, 9)</pre>
+<pre>(17484, 9)</pre>
 </div>
 
 </div>
@@ -14169,7 +14137,7 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">6</span><span class="p">:]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -14185,7 +14153,7 @@ Tempo decorrido: 68.5 segundos.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[24]:</div>
 
 
 
@@ -14218,49 +14186,49 @@ Tempo decorrido: 68.5 segundos.
   </thead>
   <tbody>
     <tr>
-      <th>4322</th>
-      <td>prot cg titan 150</td>
-      <td>HONDA TITAN CG TIT 150 AN</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <th>4530</th>
+      <td>cg 125 cargo fan titan</td>
+      <td>125 cargo cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG FAN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
-      <th>15987</th>
-      <td>titan 150 sport</td>
-      <td>SPORT TITAN TIT 150 AN</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>LIFAN LF125</td>
+      <th>13880</th>
+      <td>520vo ht crf 230</td>
+      <td>230 crf honda</td>
+      <td>HONDA CRF 230 230F 250 250F</td>
+      <td>HONDA CRF 230 230F 250 250F</td>
+      <td>HONDA CRF 230 230F 250 250F</td>
+      <td>HONDA CRF 230 230F 250 250F</td>
     </tr>
     <tr>
-      <th>12871</th>
-      <td>cbx 250 twister</td>
-      <td>HONDA TWISTER 250 CBX</td>
-      <td>HONDA TWISTER CBX 250</td>
-      <td>HONDA TWISTER CBX 250</td>
-      <td>HONDA TWISTER CBX 250</td>
-      <td>HONDA TWISTER CBX 250</td>
+      <th>17237</th>
+      <td>todos acondicionado única titan 125 fan</td>
+      <td>125 fan honda titan</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
-      <th>17097</th>
-      <td>factor125 velth</td>
-      <td>YAMAHA 125 FACTOR</td>
+      <th>6817</th>
+      <td>tkbrybrb factor ybr 125</td>
+      <td>125 factor yamaha ybr</td>
       <td>YAMAHA FACTOR YBR 125 YBR125</td>
       <td>YAMAHA FACTOR YBR 125 YBR125</td>
       <td>YAMAHA FACTOR YBR 125 YBR125</td>
-      <td>LIFAN LF125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
     </tr>
     <tr>
-      <th>8319</th>
-      <td>titan 150</td>
-      <td>TITAN 150 TIT AN</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>LIFAN LF125</td>
+      <th>14379</th>
+      <td>falcon 400</td>
+      <td>400 falcon</td>
+      <td>HONDA NX 400 FALCON</td>
+      <td>HONDA NX 400 FALCON</td>
+      <td>HONDA NX 400 FALCON</td>
+      <td>HONDA NX 400 FALCON</td>
     </tr>
   </tbody>
 </table>
@@ -14282,11 +14250,98 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Definição dos filtros</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span> <span class="c1"># Modelos SVC e MNB iguais</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]</span> <span class="c1"># Modelos SVC e LGR iguais</span>
+<span class="n">f3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span> <span class="c1"># Modelo e SVC iguais</span>
+<span class="n">f4</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]</span> <span class="c1"># Modelos MNB e LGR iguais</span>
+<span class="n">f5</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span> <span class="c1"># Modelo e MNB iguais</span>
+<span class="n">f6</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span> <span class="c1"># Modelo e LGR iguais</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Multinomial NB</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3794, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Regressão Logística</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3230, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f3</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14305,7 +14360,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(1143, 9)</pre>
+<pre>(1620, 9)</pre>
 </div>
 
 </div>
@@ -14319,8 +14374,8 @@ Tempo decorrido: 68.5 segundos.
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Regressão Logistica</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos MNB e Regressão Logística</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f4</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14339,7 +14394,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(8191, 9)</pre>
+<pre>(1166, 9)</pre>
 </div>
 
 </div>
@@ -14353,8 +14408,8 @@ Tempo decorrido: 68.5 segundos.
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos Multinomial NB e Regressão Logistica</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o Modelo MNB</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f5</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14373,7 +14428,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(8030, 9)</pre>
+<pre>(3622, 9)</pre>
 </div>
 
 </div>
@@ -14387,8 +14442,8 @@ Tempo decorrido: 68.5 segundos.
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o Modelo LGR</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f6</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14407,7 +14462,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(2156, 9)</pre>
+<pre>(3014, 9)</pre>
 </div>
 
 </div>
@@ -14421,8 +14476,8 @@ Tempo decorrido: 68.5 segundos.
 <div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo Multinomial NB</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergente entre os quatro</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">f1</span> <span class="o">&amp;</span> <span class="n">f2</span> <span class="o">&amp;</span> <span class="n">f3</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14441,7 +14496,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(2136, 9)</pre>
+<pre>(4585, 9)</pre>
 </div>
 
 </div>
@@ -14455,8 +14510,8 @@ Tempo decorrido: 68.5 segundos.
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo de Regressão Logística</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAO&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOLGR&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros iguais nos quatro</span>
+<span class="n">df</span><span class="p">[</span><span class="n">f1</span> <span class="o">&amp;</span> <span class="n">f2</span> <span class="o">&amp;</span> <span class="n">f3</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14475,7 +14530,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(8808, 9)</pre>
+<pre>(12899, 9)</pre>
 </div>
 
 </div>
@@ -14487,7 +14542,7 @@ Tempo decorrido: 68.5 segundos.
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Em virtude do tempo de processamento excessivamente maior e também da enormidade de divergências, decidiu-se por abandonar o uso da modelo de regressão logística.</p>
+<p>Em virtude do tempo de processamento maior e também da maior quantidade de divergências, decidiu-se por abandonar o uso da modelo de regressão logística.</p>
 
 </div>
 </div>
@@ -14555,48 +14610,81 @@ Tempo decorrido: 68.5 segundos.
   </thead>
   <tbody>
     <tr>
-      <th>11</th>
-      <td>hunter max 125 allen</td>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
+      <th>0</th>
+      <td>honda cg 150 titan ks es mix fan</td>
+      <td>150 cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>xt 250 tenere allen</td>
-      <td>YAMAHA TENERE XT 250</td>
+      <th>2</th>
+      <td>honda cg 125 fan</td>
+      <td>125 cg fan honda</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG 125</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>hunter max 125</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>yes intruder 125 allen</td>
-      <td>SUZUKI INTRUDER 125 YES</td>
+      <td>yes intruder 125</td>
+      <td>125 intruder suzuki yes</td>
       <td>SUZUKI YES EN 125</td>
       <td>SUZUKI INTRUDER</td>
       <td>SUZUKI YES EN 125</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>jet 49cc allen</td>
-      <td>JET</td>
+      <td>jet 49cc</td>
+      <td>jet shineray</td>
       <td>['SHINERAY JET 125', 'SHINERAY JET 50']</td>
       <td>SHINERAY JET 50</td>
       <td>SHINERAY JET 125</td>
     </tr>
-    <tr>
-      <th>42</th>
-      <td>xtz 250 allen</td>
-      <td>YAMAHA 250 XTZ</td>
-      <td>['YAMAHA LANDER XTZ 250', 'YAMAHA XTZ TENERE 2...</td>
-      <td>YAMAHA XTZ 125</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-    </tr>
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;80360 KIT DE TRANSMISSÃO, COMPOSTO DE CORRENTE, COROA E PINHÃO PARA MOTOCICLETA HUNTER / MAX 125, MARCA ALLEN.&#39;</pre>
 </div>
 
 </div>
@@ -14638,7 +14726,7 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">APLICACAOFIM</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">APLICACAOMNB</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
@@ -14655,13 +14743,13 @@ Tempo decorrido: 68.5 segundos.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[37]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(18327, 9)</pre>
+<pre>(17484, 9)</pre>
 </div>
 
 </div>
@@ -14672,10 +14760,10 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14688,7 +14776,7 @@ Tempo decorrido: 68.5 segundos.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[38]:</div>
 
 
 
@@ -14720,44 +14808,84 @@ Tempo decorrido: 68.5 segundos.
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>TITAN HONDA FAN CG TIT 150 AN</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <th>15752</th>
+      <td>300 xre</td>
+      <td>HONDA XRE 300</td>
+      <td>HONDA XRE 300</td>
+      <td>HONDA XRE 300</td>
+      <td>HONDA XRE 300</td>
+    </tr>
+    <tr>
+      <th>4949</th>
+      <td>250</td>
+      <td>['ACELLERA ACX 250F 250', 'ACELLERA SPORTLANDE...</td>
+      <td>KTM SX 250</td>
+      <td>AMAZONAS AME-250</td>
+      <td>AMAZONAS AME-250</td>
+    </tr>
+    <tr>
+      <th>9789</th>
+      <td>150 cargo cg fan honda titan</td>
+      <td>HONDA CG FAN</td>
+      <td>HONDA CG FAN</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
       <td>HONDA CG TIT TITAN 125 150 160</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>TITAN HONDA CG CARGO TIT 125 AN</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
-      <td>HONDA CG TIT TITAN 125 150 160</td>
+      <th>13924</th>
+      <td>crypton yamaha</td>
+      <td>YAMAHA CRYPTON</td>
+      <td>YAMAHA CRYPTON</td>
+      <td>YAMAHA CRYPTON</td>
+      <td>YAMAHA CRYPTON</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>125 CG HONDA FAN</td>
-      <td>HONDA CG FAN</td>
-      <td>HONDA CG FAN</td>
-      <td>HONDA CG FAN</td>
-      <td>HONDA CG FAN</td>
+      <th>17426</th>
+      <td>125 yamaha ybr ybr125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>HONDA BIZ C100</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
-      <td>HONDA BIZ 100 C100 125 C125</td>
+      <th>11212</th>
+      <td>250 lander xtz yamaha</td>
+      <td>YAMAHA LANDER XTZ 250</td>
+      <td>YAMAHA LANDER XTZ 250</td>
+      <td>YAMAHA LANDER XTZ 250</td>
+      <td>YAMAHA LANDER XTZ 250</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>MIRAGE 150</td>
-      <td>KASINSKI MIRAGE 150 250</td>
-      <td>KASINSKI MIRAGE 150 250</td>
-      <td>KASINSKI MIRAGE 150 250</td>
-      <td>KASINSKI MIRAGE 150 250</td>
+      <th>12447</th>
+      <td>150 broz honda</td>
+      <td>HONDA NXR 150 160 BROZ</td>
+      <td>HONDA NXR 150 160 BROZ</td>
+      <td>HONDA NXR 150 160 BROZ</td>
+      <td>HONDA NXR 150 160 BROZ</td>
+    </tr>
+    <tr>
+      <th>12919</th>
+      <td>crypton yamaha</td>
+      <td>YAMAHA CRYPTON</td>
+      <td>YAMAHA CRYPTON</td>
+      <td>YAMAHA CRYPTON</td>
+      <td>YAMAHA CRYPTON</td>
+    </tr>
+    <tr>
+      <th>6645</th>
+      <td>125 factor yamaha ybr</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+      <td>YAMAHA FACTOR YBR 125 YBR125</td>
+    </tr>
+    <tr>
+      <th>7302</th>
+      <td>250 fazer yamaha</td>
+      <td>YAMAHA FAZER YS250 250</td>
+      <td>YAMAHA FAZER YS250 250</td>
+      <td>YAMAHA FAZER YS250 250</td>
+      <td>YAMAHA FAZER YS250 250</td>
     </tr>
   </tbody>
 </table>
@@ -14772,7 +14900,7 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span>
@@ -14828,68 +14956,16 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Multinomial NB</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[39]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(1143, 9)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Definição dos filtros</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span> <span class="c1"># Modelos SVC e MNB iguais</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOSVC&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span> <span class="c1"># Modelo manual e SVC iguais</span>
+<span class="n">f3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]</span><span class="o">==</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span> <span class="c1"># Modelo manual e MNB iguais</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[40]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(611, 9)</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -14899,8 +14975,8 @@ Tempo decorrido: 68.5 segundos.
 <div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
-<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOMNB&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre os modelos SVC e Multinomial NB</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14919,7 +14995,7 @@ Tempo decorrido: 68.5 segundos.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(681, 9)</pre>
+<pre>(3794, 9)</pre>
 </div>
 
 </div>
@@ -14931,6 +15007,142 @@ Tempo decorrido: 68.5 segundos.
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(907, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergentes entre a extração e o modelo SVC</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">f3</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[43]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3049, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros divergente entre os três</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">(</span><span class="n">f1</span> <span class="o">&amp;</span> <span class="n">f2</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3794, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Quantidade de registros iguais nos três</span>
+<span class="n">df</span><span class="p">[</span><span class="n">f1</span> <span class="o">&amp;</span> <span class="n">f2</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(13690, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
@@ -14950,7 +15162,7 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -14966,7 +15178,7 @@ Tempo decorrido: 68.5 segundos.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[43]:</div>
+    <div class="prompt output_prompt">Out[47]:</div>
 
 
 
@@ -14999,43 +15211,43 @@ Tempo decorrido: 68.5 segundos.
   <tbody>
     <tr>
       <th>11</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>YAMAHA TENERE XT 250</td>
-      <td>XXX</td>
-      <td>YAMAHA XTZ TENERE 250</td>
-      <td>YAMAHA XT TENERE 660Z 660</td>
-      <td>['YAMAHA XTZ TENERE 250', 'YAMAHA XT TENERE 66...</td>
-    </tr>
-    <tr>
-      <th>289</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>311</th>
-      <td>125 HUNTER MAX</td>
-      <td>XXX</td>
-      <td>SUNDOWN HUNTER</td>
-      <td>HONDA CT 125 HUNTER</td>
-      <td>['SUNDOWN HUNTER', 'HONDA CT 125 HUNTER']</td>
-    </tr>
-    <tr>
-      <th>632</th>
-      <td>HONDA CB MAX 300</td>
+      <td>125 hunter max sundown</td>
       <td>XXX</td>
       <td>SUNDOWN MAX</td>
-      <td>HONDA CB 300R 300 CB300</td>
-      <td>['SUNDOWN MAX', 'HONDA CB 300R 300 CB300']</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>200 cbx honda xr</td>
+      <td>XXX</td>
+      <td>HONDA XR</td>
+      <td>HONDA STRADA CBX 200</td>
+      <td>['HONDA XR', 'HONDA STRADA CBX 200']</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>150 fazer sm yamaha</td>
+      <td>XXX</td>
+      <td>HUSQVARNA SM</td>
+      <td>YAMAHA FAZER YS150 150</td>
+      <td>['HUSQVARNA SM', 'YAMAHA FAZER YS150 150']</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
+    </tr>
+    <tr>
+      <th>304</th>
+      <td>125 hunter max sundown</td>
+      <td>XXX</td>
+      <td>SUNDOWN MAX</td>
+      <td>SUNDOWN HUNTER</td>
+      <td>['SUNDOWN MAX', 'SUNDOWN HUNTER']</td>
     </tr>
   </tbody>
 </table>
@@ -15050,7 +15262,7 @@ Tempo decorrido: 68.5 segundos.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
@@ -15066,15 +15278,118 @@ Tempo decorrido: 68.5 segundos.
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[44]:</div>
+    <div class="prompt output_prompt">Out[48]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(149, 9)</pre>
+<pre>(162, 9)</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Classificando-pela-quantidade-de-termos-em-comum">Classificando pela quantidade de termos em comum<a class="anchor-link" href="#Classificando-pela-quantidade-de-termos-em-comum">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># determina o(s) índice(s) do valor máximo de uma lista</span>
+<span class="k">def</span> <span class="nf">indicesMaxLista</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="n">maximo</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+    <span class="n">indices</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">elemento</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">elemento</span><span class="o">==</span><span class="n">maximo</span><span class="p">:</span>
+            <span class="n">indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">indices</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">colindex</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;APLICACAOFIM&quot;</span><span class="p">)</span> <span class="c1"># índice da coluna</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">filtro</span><span class="p">]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span> <span class="c1">#para cada linha do dataset</span>
+    <span class="n">qtds</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">aplicMOD</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Modelo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">aplicFIM</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">,</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;]&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">aplicFIM</span><span class="p">):</span>
+        <span class="n">aplicFIMlista</span><span class="o">=</span><span class="n">aplicacao</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="n">qtds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">aplicFIMlista</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">aplicMOD</span><span class="p">))))</span> <span class="c1"># determinar len da interseção                    </span>
+    <span class="n">indicesMax</span> <span class="o">=</span> <span class="n">indicesMaxLista</span><span class="p">(</span><span class="n">qtds</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indicesMax</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="n">aplicFIM</span><span class="p">[</span><span class="n">indicesMax</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">colindex</span><span class="p">]</span><span class="o">=</span><span class="nb">str</span><span class="p">([</span><span class="n">aplicFIM</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">indicesMax</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Registros ainda não definidos (lista de opções)</span>
+<span class="c1"># O filtro definirá True se APLICACAOFIM iniciar com &#39;[&#39; ou False caso contrário.</span>
+<span class="n">filtro</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">aplicacao</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;APLICACAOFIM&#39;</span><span class="p">]):</span>
+    <span class="k">if</span> <span class="n">aplicacao</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;[&#39;</span><span class="p">:</span>
+        <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filtro</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Registros a classificar: </span><span class="si">{df[filtro].shape[0]}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Registros a classificar: 67
+</pre>
+</div>
 </div>
 
 </div>
@@ -15093,7 +15408,7 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Exportando-o-DataSet-para-classifica&#231;&#227;o-manual">Exportando o DataSet para classifica&#231;&#227;o manual<a class="anchor-link" href="#Exportando-o-DataSet-para-classifica&#231;&#227;o-manual">&#182;</a></h2>
+<h2 id="Exportando-o-DataSet-para-classifica&#231;&#227;o-&quot;manual&quot;">Exportando o DataSet para classifica&#231;&#227;o "manual"<a class="anchor-link" href="#Exportando-o-DataSet-para-classifica&#231;&#227;o-&quot;manual&quot;">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15107,10 +15422,10 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual-tf.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -15128,13 +15443,48 @@ A seguir, exportaremos o arquivo em excel para fazer a classificação manual em
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe_modelos_classificado_manual-tf.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempotot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">initot</span>
+<span class="k">if</span> <span class="n">tempotot</span><span class="o">&gt;</span><span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: {tempotot/60:.2f} minutos.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: </span><span class="si">{tempotot:.2f}</span><span class="s1"> segundos.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tempo total de execução: 2.17 minutos.
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 

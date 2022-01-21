@@ -13163,6 +13163,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data e hora da execução do script</span>
+<span class="n">initot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Código executado em {time.strftime(&quot;</span><span class="si">%d</span><span class="s1">/%m/%Y às %H:%M&quot;, time.localtime(time.time()))}&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13180,7 +13181,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Código executado em 12/01/2022 às 18:22
+<pre>Código executado em 16/01/2022 às 17:49
 </pre>
 </div>
 </div>
@@ -13417,21 +13418,27 @@ div#notebook {
                          <span class="n">names</span> <span class="o">=</span> <span class="n">colunas</span><span class="p">,</span>
                          <span class="n">dtype</span> <span class="o">=</span> <span class="n">tipos</span><span class="p">,</span> 
                          <span class="n">quotechar</span><span class="o">=</span><span class="s2">&quot;&#39;&quot;</span><span class="p">,</span> 
-                         <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                         <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                         <span class="n">warn_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DataFrame carregado...</span><span class="se">\n</span><span class="s1">Aplicando filtros...&#39;</span><span class="p">)</span>
     <span class="c1"># Elimina os registros sem valores ou nulos</span>
     <span class="n">dftemp</span> <span class="o">=</span> <span class="n">dftemp</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
     <span class="c1"># Incrementa o tamanho do Dataset</span>
     <span class="n">tamanhoDataset</span> <span class="o">+=</span> <span class="n">dftemp</span><span class="p">[</span><span class="n">dftemp</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Quantidade de registros válidos: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tamanhoDataset</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dados da importação do arquivo&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Quantidade de registros válidos:&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;{str(dftemp[dftemp.columns[0]].count()):&gt;8}&#39;</span><span class="p">)</span>
     <span class="c1"># Filtra o DataFrame somente com os registros de interesse</span>
     <span class="c1"># Filtro 1: NCM de interesse: 87141000</span>
     <span class="n">indiceNCM</span> <span class="o">=</span> <span class="n">dftemp</span><span class="p">[</span><span class="s1">&#39;COD.NCM&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;87141000&#39;</span>
     <span class="n">dftemp</span> <span class="o">=</span> <span class="n">dftemp</span><span class="p">[</span><span class="n">indiceNCM</span><span class="p">]</span>
-    <span class="c1"># Filtro 2: Descrição contendo palavras da lista</span>
-    <span class="n">listafiltro</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;transm&quot;</span><span class="p">,</span> <span class="s2">&quot;corrente&quot;</span><span class="p">,</span> <span class="s2">&quot;coroa&quot;</span><span class="p">,</span> <span class="s2">&quot;pinhao|pinhão&quot;</span><span class="p">]</span> <span class="c1"># A barra vertical (|) faz o &quot;ou&quot;.</span>
-    <span class="k">for</span> <span class="n">termo</span> <span class="ow">in</span> <span class="n">listafiltro</span><span class="p">:</span>
+    <span class="c1"># Filtro 2: Incluir registros com descrição contendo palavras da lista a incluir</span>
+    <span class="n">listafiltroincluir</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;transm&quot;</span><span class="p">,</span> <span class="s2">&quot;corrente&quot;</span><span class="p">,</span> <span class="s2">&quot;coroa&quot;</span><span class="p">,</span> <span class="s2">&quot;pinhao|pinhão&quot;</span><span class="p">]</span> <span class="c1"># A barra vertical (|) faz o &quot;ou&quot;.</span>
+    <span class="k">for</span> <span class="n">termo</span> <span class="ow">in</span> <span class="n">listafiltroincluir</span><span class="p">:</span>
         <span class="n">dftemp</span><span class="o">=</span><span class="n">dftemp</span><span class="p">[</span><span class="n">dftemp</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">termo</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
+    <span class="c1"># Filtro 3: Excluir registros com descrição contendo palavras da lista</span>
+    <span class="n">padraofiltroexcluir</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;semi|reposicao|reposição&quot;</span>
+    <span class="n">dftemp</span><span class="o">=</span><span class="n">dftemp</span><span class="p">[</span><span class="n">dftemp</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">padraofiltroexcluir</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">==</span><span class="kc">False</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Quantidade de registros filtrados:&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;{str(dftemp[dftemp.columns[0]].count()):&gt;6}&#39;</span><span class="p">)</span>
     <span class="c1"># Concatena com o DataFrame final</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">dftemp</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">arqCSV</span> <span class="o">+</span> <span class="s1">&#39; finalizado.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -13452,377 +13459,147 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Iniciando ./bases/siscori/CAPI872001.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 390699: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 491150
+Dados da importação do arquivo
+Quantidade de registros válidos:  491150
+Quantidade de registros filtrados:   810
 ./bases/siscori/CAPI872001.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872002.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 867647
+Dados da importação do arquivo
+Quantidade de registros válidos:  376497
+Quantidade de registros filtrados:   681
 ./bases/siscori/CAPI872002.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872003.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 1303525
+Dados da importação do arquivo
+Quantidade de registros válidos:  435878
+Quantidade de registros filtrados:   906
 ./bases/siscori/CAPI872003.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872004.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 1633743
+Dados da importação do arquivo
+Quantidade de registros válidos:  330218
+Quantidade de registros filtrados:   184
 ./bases/siscori/CAPI872004.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872005.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 1881276
+Dados da importação do arquivo
+Quantidade de registros válidos:  247533
+Quantidade de registros filtrados:   429
 ./bases/siscori/CAPI872005.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872006.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 2111936
+Dados da importação do arquivo
+Quantidade de registros válidos:  230660
+Quantidade de registros filtrados:   625
 ./bases/siscori/CAPI872006.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872007.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 2417409
+Dados da importação do arquivo
+Quantidade de registros válidos:  305473
+Quantidade de registros filtrados:  1236
 ./bases/siscori/CAPI872007.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872008.CSV.
 DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 2758394
+Dados da importação do arquivo
+Quantidade de registros válidos:  340985
+Quantidade de registros filtrados:  1395
 ./bases/siscori/CAPI872008.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872009.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 205695: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 205941: field larger than field limit (131072)
-Skipping line 328937: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 333250: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 333251: &#39;@&#39; expected after &#39;&#39;&#39;
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 3092950
+Dados da importação do arquivo
+Quantidade de registros válidos:  334556
+Quantidade de registros filtrados:  1421
 ./bases/siscori/CAPI872009.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872010.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 297842: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 366276: &#39;@&#39; expected after &#39;&#39;&#39;
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 3524548
+Dados da importação do arquivo
+Quantidade de registros válidos:  431598
+Quantidade de registros filtrados:  1167
 ./bases/siscori/CAPI872010.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872011.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 145469: field larger than field limit (131072)
-Skipping line 271952: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 276774: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 277830: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 305333: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 3959784
+Dados da importação do arquivo
+Quantidade de registros válidos:  435236
+Quantidade de registros filtrados:  1084
 ./bases/siscori/CAPI872011.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872012.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 302465: field larger than field limit (131072)
-Skipping line 312506: field larger than field limit (131072)
-Skipping line 383935: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 4423973
+Dados da importação do arquivo
+Quantidade de registros válidos:  464189
+Quantidade de registros filtrados:  1009
 ./bases/siscori/CAPI872012.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872101.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 294809: field larger than field limit (131072)
-Skipping line 295442: field larger than field limit (131072)
-Skipping line 295721: field larger than field limit (131072)
-Skipping line 299080: field larger than field limit (131072)
-Skipping line 368381: &#39;@&#39; expected after &#39;&#39;&#39;
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 4887783
+Dados da importação do arquivo
+Quantidade de registros válidos:  463810
+Quantidade de registros filtrados:  1278
 ./bases/siscori/CAPI872101.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872102.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 245262: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 248256: field larger than field limit (131072)
-Skipping line 249603: field larger than field limit (131072)
-Skipping line 253297: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 5295448
+Dados da importação do arquivo
+Quantidade de registros válidos:  407665
+Quantidade de registros filtrados:  1594
 ./bases/siscori/CAPI872102.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872103.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 351927: field larger than field limit (131072)
-Skipping line 519061: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 5845327
+Dados da importação do arquivo
+Quantidade de registros válidos:  549879
+Quantidade de registros filtrados:  1517
 ./bases/siscori/CAPI872103.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872104.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 3530: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 5314: field larger than field limit (131072)
-Skipping line 427103: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 435136: field larger than field limit (131072)
-Skipping line 435246: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 6481393
+Dados da importação do arquivo
+Quantidade de registros válidos:  636066
+Quantidade de registros filtrados:  1155
 ./bases/siscori/CAPI872104.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872105.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 1432: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 1433: field larger than field limit (131072)
-Skipping line 6175: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 277564: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 278426: field larger than field limit (131072)
-Skipping line 280731: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 281441: field larger than field limit (131072)
-Skipping line 282315: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 282700: field larger than field limit (131072)
-Skipping line 333245: &#39;@&#39; expected after &#39;&#39;&#39;
-Skipping line 386253: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 6963712
+Dados da importação do arquivo
+Quantidade de registros válidos:  482319
+Quantidade de registros filtrados:   877
 ./bases/siscori/CAPI872105.CSV finalizado.
 
 Iniciando ./bases/siscori/CAPI872106.CSV.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Skipping line 8619: field larger than field limit (131072)
-Skipping line 9337: field larger than field limit (131072)
-Skipping line 10237: field larger than field limit (131072)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>DataFrame carregado...
+DataFrame carregado...
 Aplicando filtros...
-Quantidade de registros válidos: 7693634
+Dados da importação do arquivo
+Quantidade de registros válidos:  729922
+Quantidade de registros filtrados:   908
 ./bases/siscori/CAPI872106.CSV finalizado.
 
 </pre>
@@ -13856,268 +13633,13 @@ Quantidade de registros válidos: 7693634
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Verificando-o-DataFrame-importado">Verificando o DataFrame importado<a class="anchor-link" href="#Verificando-o-DataFrame-importado">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>NUMERO DE ORDEM</th>
-      <th>ANOMES</th>
-      <th>COD.NCM</th>
-      <th>DESCRICAO DO CODIGO NCM</th>
-      <th>PAIS.OR</th>
-      <th>PAIS DE ORIGEM</th>
-      <th>PAIS.AQ</th>
-      <th>PAIS DE AQUISICAO</th>
-      <th>UND.ESTAT.</th>
-      <th>UNIDADE DE MEDIDA</th>
-      <th>...</th>
-      <th>VL FRETE DOLAR</th>
-      <th>VL SEGURO DOLAR</th>
-      <th>VALOR UN.PROD.DOLAR</th>
-      <th>QTD COMERCIAL.</th>
-      <th>TOT.UN.PROD.DOLAR</th>
-      <th>UNIDADE DESEMBARQUE</th>
-      <th>UNIDADE DESEMBARACO</th>
-      <th>INCOTERM</th>
-      <th>NAT.INFORMACAO</th>
-      <th>SITUACAO DO DESPACHO</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>9388</th>
-      <td>0000000451880000100005</td>
-      <td>202011</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>2772.11</td>
-      <td>333.66</td>
-      <td>1.42000</td>
-      <td>300.0</td>
-      <td>426.00</td>
-      <td>N/INFORMADO</td>
-      <td>ITAJAI</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-    <tr>
-      <th>17356</th>
-      <td>0000001935400000400023</td>
-      <td>202104</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>767</td>
-      <td>SUICA</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>8427.66</td>
-      <td>263.89</td>
-      <td>5.87000</td>
-      <td>40.0</td>
-      <td>234.80</td>
-      <td>N/INFORMADO</td>
-      <td>PORTO DE VITORIA</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-    <tr>
-      <th>19149</th>
-      <td>0000001790740000100010</td>
-      <td>202106</td>
-      <td>87141000</td>
-      <td>PARTES ACESSÓRIOS P/MOTOCICLET</td>
-      <td>160</td>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>351</td>
-      <td>HONG KONG</td>
-      <td>10</td>
-      <td>QUILOGRAMA LIQUIDO</td>
-      <td>...</td>
-      <td>4485.00</td>
-      <td>232.35</td>
-      <td>4.62885</td>
-      <td>200.0</td>
-      <td>925.77</td>
-      <td>N/INFORMADO</td>
-      <td>ITAJAI</td>
-      <td>FOB</td>
-      <td>EFETIVA</td>
-      <td>DI DESEMBARAÇADA</td>
-    </tr>
-  </tbody>
-</table>
-<p>3 rows × 25 columns</p>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>(19317, 25)</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Remover-espa&#231;os-em-excesso-nos-campos-string">Remover espa&#231;os em excesso nos campos string<a class="anchor-link" href="#Remover-espa&#231;os-em-excesso-nos-campos-string">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove espaços em excesso das colunas em colstr</span>
-<span class="n">colstr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DESCRICAO DO CODIGO NCM&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;PAIS DE ORIGEM&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;PAIS DE AQUISICAO&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;UNIDADE DE MEDIDA&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;UNIDADE COMERC.&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;UNIDADE DESEMBARQUE&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;UNIDADE DESEMBARACO&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;INCOTERM&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;NAT.INFORMACAO&#39;</span><span class="p">,</span>
-          <span class="s1">&#39;SITUACAO DO DESPACHO&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">coluna</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">:</span>
-    <span class="n">df</span><span class="p">[</span><span class="n">coluna</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">coluna</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">][</span><span class="mi">5</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;80348 KIT DE TRANSMISSÃO, COMPOSTO DE CORRENTE, COROA E PINHÃO PARA MOTOCICLETA CBX 250 TWISTER, MARCA ALLEN.&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Excluindo-colunas-desnecess&#225;rias">Excluindo colunas desnecess&#225;rias<a class="anchor-link" href="#Excluindo-colunas-desnecess&#225;rias">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">excluir</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NUMERO DE ORDEM&#39;</span><span class="p">,</span>
@@ -14151,7 +13673,7 @@ Quantidade de registros válidos: 7693634
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">excluir</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -14162,12 +13684,43 @@ Quantidade de registros válidos: 7693634
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Remover-espa&#231;os-em-excesso-nos-campos-string">Remover espa&#231;os em excesso nos campos string<a class="anchor-link" href="#Remover-espa&#231;os-em-excesso-nos-campos-string">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove espaços em excesso das colunas em colstr</span>
+<span class="n">colstr</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PAIS DE ORIGEM&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;DESCRICAO DO PRODUTO&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">coluna</span> <span class="ow">in</span> <span class="n">colstr</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">coluna</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">coluna</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Verificando-o-DataFrame-importado">Verificando o DataFrame importado<a class="anchor-link" href="#Verificando-o-DataFrame-importado">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14180,7 +13733,7 @@ Quantidade de registros válidos: 7693634
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -14210,22 +13763,34 @@ Quantidade de registros válidos: 7693634
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>6916</th>
       <td>CHINA, REPUBLICA POP</td>
-      <td>007293# KIT TRANSMISSAO STANDARD TEMPERADO COM...</td>
-      <td>3.728</td>
+      <td>KIT DE TRANSMISSAO P MOTOCICLETA MOD.: FAZER 1...</td>
+      <td>5.730000</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>3841</th>
       <td>CHINA, REPUBLICA POP</td>
-      <td>007295# KIT TRANSMISSAO STANDARD TEMPERADO COM...</td>
-      <td>3.700</td>
+      <td>22292 - 91083 - KIT DE TRANSMISSAO PARA MOTOCI...</td>
+      <td>8.680000</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>6339</th>
       <td>CHINA, REPUBLICA POP</td>
-      <td>007296# KIT TRANSMISSAO STANDARD TEMPERADO COM...</td>
-      <td>3.686</td>
+      <td>878192 - KIT DE TRANSMISSÃO, COMPOSTO DE CORRE...</td>
+      <td>22.214749</td>
+    </tr>
+    <tr>
+      <th>7211</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>007266# KIT TRANSMISSÃO STANDARD TEMPERADO COM...</td>
+      <td>5.201000</td>
+    </tr>
+    <tr>
+      <th>5612</th>
+      <td>CHINA, REPUBLICA POP</td>
+      <td>TRANSMISSAO PARA USO EM MOTOCICLETA COMPOSTO D...</td>
+      <td>3.560000</td>
     </tr>
   </tbody>
 </table>
@@ -14240,10 +13805,10 @@ Quantidade de registros válidos: 7693634
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -14256,56 +13821,13 @@ Quantidade de registros válidos: 7693634
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PAIS DE ORIGEM</th>
-      <th>DESCRICAO DO PRODUTO</th>
-      <th>VALOR UN.PROD.DOLAR</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>19314</th>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>KIT DE TRANSMISSÃO AÇO TITAN 99 1045 COMPOSTO ...</td>
-      <td>3.581</td>
-    </tr>
-    <tr>
-      <th>19315</th>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>KIT DE TRANSMISSÃO AÇO YBR 125 00/02 1045, COM...</td>
-      <td>3.450</td>
-    </tr>
-    <tr>
-      <th>19316</th>
-      <td>CHINA, REPUBLICA POP</td>
-      <td>KIT DE TRANSMISSÃO AÇO YBR 125 03/05, COMPOSTO...</td>
-      <td>3.503</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(18276, 3)</pre>
 </div>
 
 </div>
@@ -14331,7 +13853,7 @@ Quantidade de registros válidos: 7693634
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -14352,7 +13874,7 @@ Quantidade de registros válidos: 7693634
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;./bases/dataframe.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -14373,11 +13895,11 @@ Quantidade de registros válidos: 7693634
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Qtd de registros Dataset original: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tamanhoDataset</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Qtd de registros Dataset final:    &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">()))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Quantidade total de registros válidos importados:&#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;{str(tamanhoDataset):&gt;8}&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Tamanho do dataset após aplicação dos filtros:   &#39;</span> <span class="o">+</span> <span class="n">f</span><span class="s1">&#39;{str(df.shape[0]):&gt;8}&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14394,8 +13916,44 @@ Quantidade de registros válidos: 7693634
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Qtd de registros Dataset original: 7693634
-Qtd de registros Dataset final:    19317
+<pre>
+Quantidade total de registros válidos importados: 7693634
+Tamanho do dataset após aplicação dos filtros:      18276
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tempotot</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">initot</span>
+<span class="k">if</span> <span class="n">tempotot</span><span class="o">&gt;</span><span class="mi">60</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: {tempotot/60:.2f} minutos.&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Tempo total de execução: </span><span class="si">{tempotot:.2f}</span><span class="s1"> segundos.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Tempo total de execução: 5.42 minutos.
 </pre>
 </div>
 </div>
