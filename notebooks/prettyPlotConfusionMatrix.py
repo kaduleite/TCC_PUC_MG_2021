@@ -1,3 +1,5 @@
+# prettyPlotConfusionMatrix.py
+#
 # -*- coding: utf-8 -*-
 """
 plot a pretty confusion matrix with seaborn
