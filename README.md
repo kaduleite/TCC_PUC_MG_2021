@@ -10,7 +10,7 @@ Leia o relatório completo do trabalho no arquivo _TCC Ciência de Dados - PUC M
 Raiz
  ├── apresentação
  │    ├── Apresentação TCC Carlos Eduardo Ribeiro Leite.pdf
- │    └── Apresentação TCC Carlos Eduardo Ribeiro Leite.mp4
+ │    └── Apresentação TCC Carlos Eduardo Ribeiro Leite HD.mp4
  ├── notebooks em html
  │    ├── 1a_trataCSVsSiscori.html
  │    ├── 1b_trataABIMOTO13.html
