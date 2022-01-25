@@ -12,7 +12,7 @@ Vídeo de apresentação do trabalho: [YouTube](https://youtu.be/-BIbnZE2UVI)
 Raiz
  ├── apresentação
  │    ├── Apresentação TCC Carlos Eduardo Ribeiro Leite.pdf
- │    └── Apresentação TCC Carlos Eduardo Ribeiro Leite HD.mp4
+ │    └── Apresentação TCC Carlos Eduardo Ribeiro Leite 576.mp4
  ├── notebooks em html
  │    ├── 1a_trataCSVsSiscori.html
  │    ├── 1b_trataABIMOTO13.html
