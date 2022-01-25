@@ -107,7 +107,7 @@ Raiz
 ```
 
 ## Requisitos
- * [Python](https://www.python.org/);
+ * [Python](https://www.python.org/) e algumas bibliotecas, como pandas, numpy e outras;
  * [Jupyter](https://jupyter.org/) ou uma ferramenta equivalente para execução de arquivos _"ipynb"_;
  * Descompactador de arquivos zip, como o [7-zip](https://www.7-zip.org/);
  * Leitor PDF, como o [Foxit PDF Reader](https://www.foxit.com/pdf-reader/); e
