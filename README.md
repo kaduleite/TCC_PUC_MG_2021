@@ -30,7 +30,9 @@ Raiz
  │    ├── 5_NLP_modeloClassificador.pdf
  │    ├── 6_NLP_modeloClassificador_parteManual.pdf
  │    ├── 7_treinamentoClassificador.pdf
- │    └── 8_prediçãoRisco.pdf
+ │    ├── 8_prediçãoRisco.pdf
+ │    ├── funcoesTCC.pdf
+ │    └── prettyPlotConfusionMatrix.pdf
  ├── notebooks
  │    ├── bases
  │    │    ├── siscori
