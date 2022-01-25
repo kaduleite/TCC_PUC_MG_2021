@@ -5,6 +5,8 @@
 Tema: **PREVISÃO DE RISCO DE FRAUDES DE VALORAÇÃO EM IMPORTAÇÃO DE KITS DE TRANSMISSÃO DE MOTOCICLETAS**<br>
 Leia o relatório completo do trabalho no arquivo _TCC Ciência de Dados - PUC MG - Carlos Eduardo Ribeiro Leite.pdf_
 
+Vídeo de apresentação do trabalho: [YouTube](https://youtu.be/-BIbnZE2UVI)
+
 ## Estrutura do Projeto
 ```
 Raiz
