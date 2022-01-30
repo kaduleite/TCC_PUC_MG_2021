@@ -2,6 +2,7 @@
 ## Pós Graduação em Ciência de Dados e Big Data :bar_chart: :books:
 ### PUC Minas - TCC Ciência de Dados e Big Data<br>
 
+<img src=notebooks/imagens/risco.gif alt="" width="150"/><br>
 Tema: **PREVISÃO DE RISCO DE FRAUDES DE VALORAÇÃO EM IMPORTAÇÃO DE KITS DE TRANSMISSÃO DE MOTOCICLETAS**<br>
 Leia o relatório completo do trabalho no arquivo _TCC Ciência de Dados - PUC MG - Carlos Eduardo Ribeiro Leite.pdf_
 
